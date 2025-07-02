@@ -81,24 +81,24 @@
             background-color: #c8e6c9;
             border: 1px solid #81c784;
             padding: 20px;
-            flex: 1 1 calc(33% - 20px); /* Base per 3 colonne con gap */
+            /* flex: 1 1 calc(33% - 20px); Base per 3 colonne con gap */
             min-width: 120px; /* Larghezza minima per evitare compressione eccessiva */
             box-sizing: border-box; /* Include padding e border nella larghezza */
             text-align: center;
         }
 
         /* Media Query per layout responsivo dell'esercizio 3 */
-        @media (max-width: 768px) {
+        /* @media (max-width: 768px) {
             .flex-gallery-item {
-                flex: 1 1 calc(50% - 20px); /* 2 colonne su schermi medi */
+                flex: 1 1 calc(50% - 20px); 2 colonne su schermi medi
             }
         }
 
         @media (max-width: 480px) {
             .flex-gallery-item {
-                flex: 1 1 100%; /* 1 colonna su schermi piccoli */
+                flex: 1 1 100%; 1 colonna su schermi piccoli
             }
-        }
+        } */
 
     </style>
 </head>
@@ -126,12 +126,12 @@
     <div class="exercise-container">
         <h2>Esercizio 3: Layout su più Righe (Gallery Semplice)</h2>
         <div class="flex-gallery-container">
-          <div class="flex-gallery-item">Foto 1</div>
-          <div class="flex-gallery-item">Foto 2</div>
-          <div class="flex-gallery-item">Foto 3</div>
-          <div class="flex-gallery-item">Foto 4</div>
-          <div class="flex-gallery-item">Foto 5</div>
-          <div class="flex-gallery-item">Foto 6</div>
+          <div class="flex-gallery-item" style="width: 300px;">Foto 1</div>
+          <div class="flex-gallery-item" style="width: 600px;">Foto 2</div>
+          <div class="flex-gallery-item" style="width: 100px;">Foto 3</div>
+          <div class="flex-gallery-item" style="width: 600px;">Foto 4</div>
+          <div class="flex-gallery-item" style="width: 900px;">Foto 5</div>
+          <div class="flex-gallery-item" style="width: 380px;">Foto 6</div>
         </div>
     </div>
 

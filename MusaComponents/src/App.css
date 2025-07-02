@@ -1,3 +1,4 @@
-.bordered {
-  border: 2px solid black;
+.musa-bordered {
+  border: 1px solid lightskyblue;
+  border-radius: 0.25rem;
 }
