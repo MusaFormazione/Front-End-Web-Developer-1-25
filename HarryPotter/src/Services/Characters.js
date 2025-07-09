@@ -1,4 +1,4 @@
-export async function getBooks(lang = 'it') {
+export async function getBooks(lang = 'it', setter, errorSetter) {
   try {
     const response = await fetch(`https://potterapi-fedeperin.vercel.app/${lang}/books`);
     if (!response.ok) {
@@ -6,10 +6,11 @@ export async function getBooks(lang = 'it') {
     }
     const data = await response.json();
     console.log('Books fetched:', data);
-    return data;
+    setter(data);
+    errorSetter(null); // Reset error if fetch is successful
   } catch (error) {
     console.error('Error fetching books:', error);
-    return [];
+    errorSetter(error.message);
   }
 }
 
@@ -24,3 +25,4 @@ export function getBooksMock() {
     { index: 7, title: 'Harry Potter e i Doni della Morte', author: 'J.K. Rowling' }
   ];
 }
+
