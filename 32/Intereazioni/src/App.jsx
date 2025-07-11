@@ -6,8 +6,12 @@ import { useState } from 'react'
 function App() {
   const testo = useRef(null)
   const title = useRef(null)
-  const componente = useRef(null)
   const [bottoneTopVisibile, setBottoneTopVisibile] = useState(false)
+
+  // Aggiungiamo un event listener per il bottone to top
+  document.addEventListener('scroll', () => {
+      setBottoneTopVisibile(window.scrollY > 30)
+  })
 
   const vaiAlFondoDelTesto = () => {
     if (testo.current) {
@@ -15,25 +19,17 @@ function App() {
     }
   }
 
-  const handleScroll = () => {
-    if (componente.current) {
-      const currentScroll = componente.current.scrollTop;
-      console.log(currentScroll);
-      const maxScroll = componente.current.scrollHeight - componente.current.clientHeight;
-      if (currentScroll >= maxScroll - 100) {
-        setBottoneTopVisibile(true);
-      } else {
-        setBottoneTopVisibile(false);
-      }
-    }
-  }
-
-  return <div ref={componente} onScroll={handleScroll}>
+  return <div>
     <div className="container" style={{ padding: '20px' }}>
       <h1 ref={title}>Interazione Dom Avanzata con React</h1>
     </div>
     <div className="container" style={{ padding: '20px' }}>
       <button className='btn btn-secondary' onClick={vaiAlFondoDelTesto}>Vai alla fine del testo</button>
+    </div>
+    <div className="container" style={{ padding: '20px' }}>
+      <p>
+        Il bottone to top appare quando si scorre verso il basso, e permette di tornare in cima alla pagina.
+      </p>
     </div>
     <div className="container" style={{ padding: '20px' }}>
       <textarea id="testo" ref={testo} contentEditable={true} style={{ width: '80%', height: '300px'}}>
