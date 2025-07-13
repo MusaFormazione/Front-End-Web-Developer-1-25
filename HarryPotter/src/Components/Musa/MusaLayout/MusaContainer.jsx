@@ -1,6 +1,6 @@
-function MusaContainer({ children }) {
+function MusaContainer ({ children }) {
   return (
-    <div className="container">
+    <div className='container'>
       {children}
     </div>
   )

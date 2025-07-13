@@ -9,6 +9,7 @@ import { MusaRow, MusaCol, MusaContainer } from './Components/MusaLayout' // Imp
 
 // Infine importiamo i componenti di stile
 import './App.css'
+import MusaCard from './Components/MusaCard'
 
 function sayHello () {
   console.log('Hello, World!')
@@ -22,6 +23,28 @@ function App () {
           <MusaTitle>
             Musa Bootstrap
           </MusaTitle>
+        </MusaCol>
+      </MusaRow>
+        <MusaRow>
+        <MusaCol lg={6} xl={4} >
+          <MusaCard title={'titolo'}
+            image={{ src: 'https://picsum.photos/200/200?random=1'}}
+            action={{ callback: () => console.log('sono la callback'), label: 'azione'}}>
+            Questo è un esempio di card con titolo e azione
+          </MusaCard>
+        </MusaCol>
+        <MusaCol lg={6} xl={4}>
+          <MusaCard title={'titolo'}
+            image={{ src: 'https://picsum.photos/id/64/200/200', portrait: true }}
+            action={{ callback: () => console.log('sono la callback'), label: 'azione'}}>
+            Questo è un esempio di card con titolo e azione con portrait
+          </MusaCard>
+        </MusaCol>
+          <MusaCol lg={6} xl={4}>
+          <MusaCard title={'titolo'}
+            image={{ src: 'https://picsum.photos/200/200?random=2'}}>
+            Questo è un esempio di card con titolo e semplice testo
+          </MusaCard>
         </MusaCol>
       </MusaRow>
       <MusaRow>
