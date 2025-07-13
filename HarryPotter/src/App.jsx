@@ -49,15 +49,17 @@ function App () {
       </MusaRow>
       <MusaRow>
         <MusaCol>
+          <MusaButton variant='secondary'> Magie </MusaButton>
+          <MusaButton variant='secondary'> Casate</MusaButton>
           <MusaButton
             variant={charactersPageActive ? 'primary' : 'secondary'}
             onClick={() => handleActivePage('characters')}>
-              Characters
+              Personaggi
           </MusaButton>
           <MusaButton
             variant={ booksPageActive ? 'primary' : 'secondary'}
             onClick={() => handleActivePage('books')}>
-              Books
+              Libri
           </MusaButton>
         </MusaCol>
       </MusaRow>
