@@ -1,5 +1,7 @@
 import './style.css'
 
+// image: { src, portrait = false }
+// action: { label, callback }
 function MusaCard({ children, title, image, action }) {
   return (
     <div className='card shadow m-1'>

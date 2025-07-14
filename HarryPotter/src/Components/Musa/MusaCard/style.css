@@ -11,3 +11,10 @@ h5.portrait {
   align-items: center;
   gap: 32px;
 }
+
+/* media query per schermi piccoli, fino a larghezza di 768*/
+@media screen and (max-width: 768px) {
+  h5.portrait {
+    flex-direction: column;
+  }
+}
