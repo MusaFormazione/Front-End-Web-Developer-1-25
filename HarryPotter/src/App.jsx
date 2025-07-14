@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import { getBooks } from './Services/Books'
+import { getCharacters } from './Services/Characters'
 
 import { MusaContainer, MusaRow, MusaCol } from './Components/Musa/MusaLayout/' // notare import da index.jsx
 // DA EVITARE ma equivalente a:
@@ -10,6 +11,7 @@ import MusaTitle from './Components/Musa/MusaTitle'
 import MusaButton from './Components/Musa/MusaButton'
 
 import HPBookList from './Components/HP/HPBookList'
+import HPCharacterList from './Components/HP/HPCharactersList'
 
 import './App.css'
 
@@ -20,6 +22,12 @@ const fetchBooks = async (setBooks, setError, setLoading) => {
   setLoading(false) // Imposta il caricamento a false dopo aver ottenuto i dati
 }
 
+const fetchCharacters = async (setCharacters, setError, setLoading) => {
+  setLoading(true) // Imposta il caricamento a true prima di iniziare la richiesta
+  console.log('Fetching characters...')
+  await getCharacters('it', setCharacters, setError)
+  setLoading(false) // Imposta il caricamento a false dopo aver ottenuto i dati
+}
 
 function App () {
   const [loading, setLoading] = useState(true)
@@ -32,6 +40,10 @@ function App () {
   useEffect(() => {
     fetchBooks(setBooks, setError, setLoading)
   }, [])
+
+  useEffect(() => {
+    fetchCharacters(setCharacters, setError, setLoading)
+  }, [booksPageActive])
 
   const handleActivePage = (page) => {
     if (page === 'characters') {
@@ -64,7 +76,7 @@ function App () {
         </MusaCol>
       </MusaRow>
       <MusaRow>
-        { charactersPageActive && <p>Characters page is not implemented yet.</p> }
+        { charactersPageActive && <HPCharacterList characters={characters} loading={loading} error={error} /> }
         { booksPageActive && <HPBookList books={books} loading={loading} error={error} /> }
       </MusaRow>
       {error && <p className='alert alert-danger'>Error: {error}</p>}
