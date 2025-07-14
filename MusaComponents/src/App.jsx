@@ -5,44 +5,48 @@
 // Importiamo poi i nostri componenti
 import MusaButton from './Components/MusaButton' // Notare l'import  da una folder se index.jsx non serve tutto il percorso
 import MusaTitle from './Components/MusaTitle' // Importiamo il componente MusaTitle
+import MusaCard from './Components/MusaCard'
 import { MusaRow, MusaCol, MusaContainer } from './Components/MusaLayout' // Importiamo i componenti di layout dall'index.jsx della cartella MusaLayout
+import { MusaAlert, MusaError, MusaLoading } from './Components/MusaAlert'
 
 // Infine importiamo i componenti di stile
 import './App.css'
-import MusaCard from './Components/MusaCard'
 
-function sayHello () {
+function sayHello() {
   console.log('Hello, World!')
 }
 
-function App () {
+function App() {
+  const immaginePortait = { src: 'https://picsum.photos/id/64/200/200', portrait: true }
   return (
     <MusaContainer> {/* Container è il componente di bootstrap che serve per racchiudere il contenuto */}
-      <MusaRow> {/* MusaRow è il componente di bootstrap che serve per creare una riga */ }
-        <MusaCol> {/* MusaCol è il componente di bootstrap che serve per creare una MusaColonna */ }
+      <MusaRow> {/* MusaRow è il componente di bootstrap che serve per creare una riga */}
+        <MusaCol> {/* MusaCol è il componente di bootstrap che serve per creare una MusaColonna */}
           <MusaTitle>
             Musa Bootstrap
           </MusaTitle>
         </MusaCol>
       </MusaRow>
-        <MusaRow>
+      <MusaRow>
         <MusaCol lg={6} xl={4} >
           <MusaCard title={'titolo'}
-            image={{ src: 'https://picsum.photos/200/200?random=1'}}
-            action={{ callback: () => console.log('sono la callback'), label: 'azione'}}>
+            image={{ src: 'https://picsum.photos/200/200?random=1' }}
+            action={{ callback: () => console.log('sono la callback'), label: 'azione' }}>
             Questo è un esempio di card con titolo e azione
           </MusaCard>
         </MusaCol>
         <MusaCol lg={6} xl={4}>
           <MusaCard title={'titolo'}
-            image={{ src: 'https://picsum.photos/id/64/200/200', portrait: true }}
-            action={{ callback: () => console.log('sono la callback'), label: 'azione'}}>
+            image={immaginePortait}
+            action={{
+              callback: () => { const time = new Date(); console.log('eseguito al '+ time) },
+              label: 'azione' }}>
             Questo è un esempio di card con titolo e azione con portrait
           </MusaCard>
         </MusaCol>
-          <MusaCol lg={6} xl={4}>
+        <MusaCol lg={6} xl={4}>
           <MusaCard title={'titolo'}
-            image={{ src: 'https://picsum.photos/200/200?random=2'}}>
+            image={{ src: 'https://picsum.photos/200/200?random=2' }}>
             Questo è un esempio di card con titolo e semplice testo
           </MusaCard>
         </MusaCol>
@@ -65,6 +69,13 @@ function App () {
           <MusaButton variant='danger' size='lg' onClick={sayHello}>
             Click Me
           </MusaButton>
+        </MusaCol>
+      </MusaRow>
+      <MusaRow>
+        <MusaCol>
+          <MusaAlert>Sono un alert</MusaAlert>
+          <MusaError>Sono un errore</MusaError>
+          <MusaLoading>elemento</MusaLoading>
         </MusaCol>
       </MusaRow>
       <MusaRow>

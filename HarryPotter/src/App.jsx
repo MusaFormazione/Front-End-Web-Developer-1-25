@@ -39,6 +39,7 @@ function App () {
 
   useEffect(() => {
     fetchBooks(setBooks, setError, setLoading)
+    fetchCharacters(setCharacters, setError, setLoading)
   }, [])
 
   useEffect(() => {
@@ -79,7 +80,6 @@ function App () {
         { charactersPageActive && <HPCharacterList characters={characters} loading={loading} error={error} /> }
         { booksPageActive && <HPBookList books={books} loading={loading} error={error} /> }
       </MusaRow>
-      {error && <p className='alert alert-danger'>Error: {error}</p>}
     </MusaContainer>
   )
 }
