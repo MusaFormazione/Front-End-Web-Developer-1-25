@@ -1,10 +1,3 @@
-img.portrait {
-  object-fit: cover;
-  object-position: center;
-  width: 100%;
-  height: 100%;
-}
-
 div.portrait {
   min-height: 140px;
   min-width: 140px;
@@ -13,6 +6,14 @@ div.portrait {
   border-radius: 50%;
   overflow: hidden;
 }
+
+img.portrait {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+
 
 h5.portrait {
   display: flex;

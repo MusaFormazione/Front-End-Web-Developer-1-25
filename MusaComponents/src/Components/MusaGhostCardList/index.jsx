@@ -4,7 +4,7 @@ import MusaGhostCard from "../MusaGhostCard";
 
 function MusaGhostCardList({loading, message}) {
   return <>
-    {loading && <MusaLoading>Libri</MusaLoading>}
+    {loading && <MusaLoading />}
     {message && <MusaAlert>{message}</MusaAlert>}
     <MusaCol md={6} lg={4} xl={4}>
       <MusaGhostCard />

@@ -2,7 +2,9 @@
 
 function MusaNavbarItem({ item }) {
   return <li className="nav-item">
-    <a className={`nav-link ${item?.active && 'active'}`} aria-current="page" href="#" onClick={item.action}>{item.label}</a>
+    <a className={`nav-link ${item?.active && 'active'}`}
+      onClick={item.action}
+      aria-current="page" href="#" >{item.label}</a>
   </li>
 }
 
