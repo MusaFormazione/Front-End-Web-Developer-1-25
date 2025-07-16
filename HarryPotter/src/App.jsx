@@ -47,17 +47,26 @@ function App() {
     { id: HOUSES, label: 'Case', action: () => updatePageList(HOUSES), active: false }
   ]
 
+  const intialErrorState = [
+    { id: CHARACTERS, error: null },
+    { id: BOOKS, error: null },
+    { id: SPELLS, error: null },
+    { id: HOUSES, error: null }
+  ]
+
   const [loading, setLoading] = useState(true)
   const [books, setBooks] = useState([])
   const [characters, setCharacters] = useState([])
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(intialErrorState)
   const [pageList, setPageList] = useState(initialPageListState)
-
+  const [esempio, setEsempio] = useState('') // Esempio di stato aggiuntivo
 
   // Aggiorna lo stato della lista delle pagine attive
   // NOTA: questa funzione è definita dentro il componente App per poter accedere a
   // setPageList senza doverlo passare come parametro
   const updatePageList = (activePage) => {
+    setEsempio('Ciao') // Esempio di aggiornamento di uno stato aggiuntivo
+    setEsempio(prev => prev + ' Mondo')
     console.log('Updating page list setting active:', activePage)
     setPageList(prevList => prevList.map(item => ({
           ...item, // Destruttura l'oggetto esistente aggiungendo (forzando) la proprietà active
@@ -67,12 +76,24 @@ function App() {
     )
   }
 
+  const updateErrorState = (id, error) => {
+    setError(prev => prev.map(i => {
+      if (i.id === id) {
+        return { ...i, error } // Aggiorna l'errore per l'elemento specifico
+      }
+      return i // Mantieni gli altri errori invariati
+    }))
+  }
+
   useEffect(() => {
-    setError(null) // Resetta l'errore all'inizio
-    fetchBooks(setBooks, setError, setLoading)
-    fetchCharacters(setCharacters, setError, setLoading)
+    fetchBooks(setBooks, (error) => updateErrorState(BOOKS, error), setLoading)
+    fetchCharacters(setCharacters, (error) => updateErrorState(CHARACTERS, error), setLoading)
   }, [])
 
+  // Utilizzo di un approccio non dichiarativo ma imperativo alla visualizzazione
+  // dei personaggi
+  // const charactersElement= pageList.find(i => i.id === CHARACTERS)
+  // const charactersActive = charactersElement?.active
   return (
     <MusaContainer>
       <MusaRow>
@@ -84,11 +105,14 @@ function App() {
         </MusaCol>
       </MusaRow>
       <MusaRow>
+        {/* charactersActive && <p> elenco dei personaggi</p> */}
         {pageList.find(i => i.id === CHARACTERS)?.active &&
-          <HPCharacterList characters={characters} loading={loading} error={error} />
+          <HPCharacterList characters={characters} loading={loading}
+            error={error.find(i => i.id === CHARACTERS)?.error} />
         }
         {pageList.find(i => i.id === BOOKS)?.active &&
-          <HPBookList books={books} loading={loading} error={error} />
+          <HPBookList books={books} loading={loading}
+            error={error.find(i => i.id === BOOKS)?.error} />
         }
         {pageList.find(i => i.id === SPELLS)?.active &&
           <MusaGhostCardList message={'Magie ancora da implementare'}/>
