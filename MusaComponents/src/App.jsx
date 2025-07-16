@@ -9,6 +9,9 @@ import MusaCard from './Components/MusaCard'
 import { MusaRow, MusaCol, MusaContainer } from './Components/MusaLayout' // Importiamo i componenti di layout dall'index.jsx della cartella MusaLayout
 import { MusaAlert, MusaError, MusaLoading } from './Components/MusaAlert'
 
+import MusaGhostCardList from './Components/MusaGhostCardList'
+import MusaNavbar from './Components/MusaNavbar'
+
 // Infine importiamo i componenti di stile
 import './App.css'
 
@@ -17,7 +20,7 @@ function sayHello() {
 }
 
 function App() {
-  const immaginePortait = { src: 'https://picsum.photos/id/64/200/200', portrait: true }
+  const immaginePortait = { src: 'https://picsum.photos/id/64/350/500', portrait: true }
   return (
     <MusaContainer> {/* Container è il componente di bootstrap che serve per racchiudere il contenuto */}
       <MusaRow> {/* MusaRow è il componente di bootstrap che serve per creare una riga */}
@@ -25,6 +28,14 @@ function App() {
           <MusaTitle>
             Musa Bootstrap
           </MusaTitle>
+        </MusaCol>
+      </MusaRow>
+      <MusaRow>
+        <MusaCol>
+          <MusaNavbar items={[
+            { label: 'Home', action: () => console.log('Home clicked'), active: true },
+            { label: 'About', action: () => console.log('About clicked'), active: false },
+          ]} title="Musa Navbar" />
         </MusaCol>
       </MusaRow>
       <MusaRow>
@@ -39,8 +50,9 @@ function App() {
           <MusaCard title={'titolo'}
             image={immaginePortait}
             action={{
-              callback: () => { const time = new Date(); console.log('eseguito al '+ time) },
-              label: 'azione' }}>
+              callback: () => { const time = new Date(); console.log('eseguito al ' + time) },
+              label: 'azione'
+            }}>
             Questo è un esempio di card con titolo e azione con portrait
           </MusaCard>
         </MusaCol>
@@ -50,6 +62,7 @@ function App() {
             Questo è un esempio di card con titolo e semplice testo
           </MusaCard>
         </MusaCol>
+        <MusaGhostCardList loading={true}/>
       </MusaRow>
       <MusaRow>
         <MusaCol>
