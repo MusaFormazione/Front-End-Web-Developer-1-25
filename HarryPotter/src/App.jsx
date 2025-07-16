@@ -35,6 +35,8 @@ function App () {
   const [error, setError] = useState(null)
   const [charactersPageActive, setCharactersPageActive] = useState(false)
   const [booksPageActive, setBooksPageActive] = useState(true)
+  const [spellPageActive, setSpellPageActive] = useState(false)
+  const [housesPageActive, setHousesPageActive] = useState(false)
 
   useEffect(() => {
     fetchBooks(setBooks, setError, setLoading)
@@ -45,9 +47,23 @@ function App () {
     if (page === 'characters') {
       setCharactersPageActive(true)
       setBooksPageActive(false)
+      setSpellPageActive(false)
+      setHousesPageActive(false)
     } else if (page === 'books') {
       setCharactersPageActive(false)
       setBooksPageActive(true)
+      setSpellPageActive(false)
+      setHousesPageActive(false)
+    } else if (page === 'spells') {
+      setCharactersPageActive(false)
+      setBooksPageActive(false)
+      setSpellPageActive(true)
+      setHousesPageActive(false)
+    } else if (page === 'houses') {
+      setCharactersPageActive(false)
+      setBooksPageActive(false)
+      setSpellPageActive(false)
+      setHousesPageActive(true)
     }
   }
   return (
@@ -57,8 +73,15 @@ function App () {
       </MusaRow>
       <MusaRow>
         <MusaCol>
-          <MusaButton variant='secondary'> Magie </MusaButton>
-          <MusaButton variant='secondary'> Casate</MusaButton>
+          <MusaButton
+            variant={spellPageActive ? 'primary' : 'secondary'}
+            onClick={() => handleActivePage('spells')}>
+              Magie
+          </MusaButton>
+          <MusaButton variant={housesPageActive ? 'primary' : 'secondary'}
+            onClick={() => handleActivePage('houses')}>
+            Casate
+          </MusaButton>
           <MusaButton
             variant={charactersPageActive ? 'primary' : 'secondary'}
             onClick={() => handleActivePage('characters')}>
@@ -74,6 +97,8 @@ function App () {
       <MusaRow>
         { charactersPageActive && characters.map((character, i) => <p key={i}>{character.fullName}</p>) }
         { booksPageActive && <HPBookList books={books} loading={loading} error={error} /> }
+        { spellPageActive && <p>Magie da implementare</p> }
+        { housesPageActive && <p>Casate da implementare</p> }
       </MusaRow>
     </MusaContainer>
   )
