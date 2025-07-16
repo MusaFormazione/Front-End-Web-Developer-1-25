@@ -8,7 +8,7 @@ function HPCharacter({ character }) {
       image={{ src: character.image, portrait: true }} >
       {character.description}
       <br />
-      <strong>Casa:</strong> {character.hogwartsHouse} <br />
+      <strong>Casata:</strong> {character.hogwartsHouse} <br />
       <strong>Compleanno:</strong> {character.birthdate} <br />
     </MusaCard>
   </MusaCol>
