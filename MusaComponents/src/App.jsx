@@ -15,11 +15,11 @@ import MusaNavbar from './Components/MusaNavbar'
 // Infine importiamo i componenti di stile
 import './App.css'
 
-function sayHello() {
+function sayHello () {
   console.log('Hello, World!')
 }
 
-function App() {
+function App () {
   const immaginePortait = { src: 'https://picsum.photos/id/64/350/500', portrait: true }
   return (
     <MusaContainer> {/* Container è il componente di bootstrap che serve per racchiudere il contenuto */}
@@ -32,37 +32,45 @@ function App() {
       </MusaRow>
       <MusaRow>
         <MusaCol>
-          <MusaNavbar items={[
-            { label: 'Home', action: () => console.log('Home clicked'), active: true },
-            { label: 'About', action: () => console.log('About clicked'), active: false },
-          ]} title="Musa Navbar" />
+          <MusaNavbar
+            items={[
+              { label: 'Home', action: () => console.log('Home clicked'), active: true },
+              { label: 'About', action: () => console.log('About clicked'), active: false }
+            ]} title='Musa Navbar'
+          />
         </MusaCol>
       </MusaRow>
       <MusaRow>
-        <MusaCol lg={6} xl={4} >
-          <MusaCard title={'titolo'}
+        <MusaCol lg={6} xl={4}>
+          <MusaCard
+            title='titolo'
             image={{ src: 'https://picsum.photos/200/200?random=1' }}
-            action={{ callback: () => console.log('sono la callback'), label: 'azione' }}>
+            action={{ callback: () => console.log('sono la callback'), label: 'azione' }}
+          >
             Questo è un esempio di card con titolo e azione
           </MusaCard>
         </MusaCol>
         <MusaCol lg={6} xl={4}>
-          <MusaCard title={'titolo'}
+          <MusaCard
+            title='titolo'
             image={immaginePortait}
             action={{
               callback: () => { const time = new Date(); console.log('eseguito al ' + time) },
               label: 'azione'
-            }}>
+            }}
+          >
             Questo è un esempio di card con titolo e azione con portrait
           </MusaCard>
         </MusaCol>
         <MusaCol lg={6} xl={4}>
-          <MusaCard title={'titolo'}
-            image={{ src: 'https://picsum.photos/200/200?random=2' }}>
+          <MusaCard
+            title='titolo'
+            image={{ src: 'https://picsum.photos/200/200?random=2' }}
+          >
             Questo è un esempio di card con titolo e semplice testo
           </MusaCard>
         </MusaCol>
-        <MusaGhostCardList loading={true}/>
+        <MusaGhostCardList loading />
       </MusaRow>
       <MusaRow>
         <MusaCol>
@@ -92,24 +100,24 @@ function App() {
         </MusaCol>
       </MusaRow>
       <MusaRow>
-        <MusaCol lg={6} >
+        <MusaCol lg={6}>
           <p>Prova</p>
         </MusaCol>
-        <MusaCol lg={6} >
+        <MusaCol lg={6}>
           <p>Prova</p>
         </MusaCol>
       </MusaRow>
       <MusaRow>
-        <MusaCol lg={3} >
+        <MusaCol lg={3}>
           <p>Prova</p>
         </MusaCol>
-        <MusaCol lg={3} >
+        <MusaCol lg={3}>
           <p>Prova</p>
         </MusaCol>
-        <MusaCol lg={3} >
+        <MusaCol lg={3}>
           <p>Prova</p>
         </MusaCol>
-        <MusaCol lg={3} >
+        <MusaCol lg={3}>
           <p>Prova</p>
         </MusaCol>
       </MusaRow>
