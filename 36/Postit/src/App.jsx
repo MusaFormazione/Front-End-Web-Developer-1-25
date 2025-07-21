@@ -12,6 +12,7 @@ function App () {
   }
 
   const removeTodo = (index) => {
+    console.log('Removing todo at index:', index)
     setTodoList(prevList => prevList.filter((_, i) => i !== index))
   }
 
