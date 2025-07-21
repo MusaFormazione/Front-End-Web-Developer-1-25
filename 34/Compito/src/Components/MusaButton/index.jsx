@@ -1,4 +1,4 @@
-import "./style.css"
+import './style.css'
 
 function MusaButton ({ children, onClick, variant = 'primary' }) {
   const className = `musa-btn btn btn-${variant}`

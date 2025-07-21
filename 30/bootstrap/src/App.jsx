@@ -17,8 +17,8 @@ function sayHello () {
 function App () {
   return (
     <MusaContainer> {/* Container è il componente di bootstrap che serve per racchiudere il contenuto */}
-      <MusaRow> {/* MusaRow è il componente di bootstrap che serve per creare una riga */ }
-        <MusaCol> {/* MusaCol è il componente di bootstrap che serve per creare una MusaColonna */ }
+      <MusaRow> {/* MusaRow è il componente di bootstrap che serve per creare una riga */}
+        <MusaCol> {/* MusaCol è il componente di bootstrap che serve per creare una MusaColonna */}
           <MusaTitle>
             Musa Bootstrap
           </MusaTitle>
@@ -45,24 +45,24 @@ function App () {
         </MusaCol>
       </MusaRow>
       <MusaRow>
-        <MusaCol lg={6} >
+        <MusaCol lg={6}>
           <p>Prova</p>
         </MusaCol>
-        <MusaCol lg={6} >
+        <MusaCol lg={6}>
           <p>Prova</p>
         </MusaCol>
       </MusaRow>
       <MusaRow>
-        <MusaCol lg={3} >
+        <MusaCol lg={3}>
           <p>Prova</p>
         </MusaCol>
-        <MusaCol lg={3} >
+        <MusaCol lg={3}>
           <p>Prova</p>
         </MusaCol>
-        <MusaCol lg={3} >
+        <MusaCol lg={3}>
           <p>Prova</p>
         </MusaCol>
-        <MusaCol lg={3} >
+        <MusaCol lg={3}>
           <p>Prova</p>
         </MusaCol>
       </MusaRow>

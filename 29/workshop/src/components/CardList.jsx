@@ -1,13 +1,13 @@
-import Card from './Card';
+import Card from './Card'
 
-function CardList({ cards }) {
+function CardList ({ cards }) {
   return (
-    <div className="card-list">
+    <div className='card-list'>
       {cards.map(card => (
         <Card key={card.id} title={card.title} imageUrl={card.image} />
       ))}
     </div>
-  );
+  )
 }
 
 export default CardList

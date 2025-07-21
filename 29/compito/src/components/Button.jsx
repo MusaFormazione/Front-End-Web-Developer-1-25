@@ -1,4 +1,4 @@
-function Button({ children }) {
+function Button ({ children }) {
   return (
     <button style={{ padding: '24px' }}>
       {children}
