@@ -18,11 +18,16 @@ function AggiungiNota ({ handleAggiungi, nota }) {
   return (
     <div className='d-flex justify-content-between align-items-center'>
       <div>
-        <input className='form-control' ref={nota} placeholder='inserisci una nuova nota' />
+        {/* Notare l'utilizzo di onKeyUp per aggiungere la nota con il tasto Invio */}
+        <input
+          className='form-control'
+          onKeyUp={e => e.key === 'Enter' && handleAggiungi()}
+          ref={nota}
+          placeholder='inserisci una nuova nota' />
       </div>
       <div>
         <button className='btn btn-primary' onClick={handleAggiungi}>
-          aggiungi <i class='bi bi-plus-circle' />
+            aggiungi <i className='bi bi-plus-circle' />
         </button>
       </div>
     </div>
@@ -35,11 +40,14 @@ function App () {
 
   const rimuovi = (id) => {
     setNote(prev => prev.filter(nota => nota.id !== id))
+    nota.current.focus() // notare il focus
   }
 
   const aggiungi = (testo) => {
+    if (!testo || testo.trim() === '') {
+      return // NOTA Non aggiungiamo note vuote
+    }
     const id = note.length ? note[note.length - 1].id + 1 : 0// Notare come calcoliamo il nuovo nuovoId
-    console.log(note)
     setNote(prev => ([...prev, { id, testo }])) // Notare l'utilizzo diretto di ID e TESTO
   }
 
@@ -53,6 +61,10 @@ function App () {
   }
 
   useEffect(() => console.log('note modificate'), [note])
+
+  useEffect(() => {
+    nota.current.focus() // focus iniziale sul campo di input
+  }, [])
 
   return (
     <div className='container'>
