@@ -4,7 +4,7 @@ import Postit from './Components/Postit'
 
 import './App.css'
 
-function App() {
+function App () {
   const [todoList, setTodoList] = useState([])
 
   const addTodo = (todo) => {
@@ -22,10 +22,14 @@ function App() {
     }
   }
 
-  return <Postit todoList={todoList}
-    addTodo={addTodo}
-    removeTodo={removeTodo}
-    handleNewInput={handleNewInput} />
+  return (
+    <Postit
+      todoList={todoList}
+      addTodo={addTodo}
+      removeTodo={removeTodo}
+      handleNewInput={handleNewInput}
+    />
+  )
 }
 
 export default App
