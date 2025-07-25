@@ -1,46 +1,16 @@
 import { useState, useEffect, useRef } from 'react'
 
+import { Nota, AggiungiNota } from './Components/Note'
 import './App.css'
 
-function Nota ({ nota, rimuovi }) {
-  const btnClassName = 'm-2 btn btn-outline-danger btn-sm'
-  return (
-    <li key={nota.id} className='list-group-item'>
-      {nota.testo}
-      <button className={btnClassName} onClick={() => rimuovi(nota.id)}>
-        rimuovi <i class='bi bi-trash ml-1' />
-      </button>
-    </li>
-  )
-}
-
-function AggiungiNota ({ handleAggiungi, nota }) {
-  return (
-    <div className='d-flex justify-content-between align-items-center'>
-      <div>
-        {/* Notare l'utilizzo di onKeyUp per aggiungere la nota con il tasto Invio */}
-        <input
-          className='form-control'
-          onKeyUp={e => e.key === 'Enter' && handleAggiungi()}
-          ref={nota}
-          placeholder='inserisci una nuova nota' />
-      </div>
-      <div>
-        <button className='btn btn-primary' onClick={handleAggiungi}>
-            aggiungi <i className='bi bi-plus-circle' />
-        </button>
-      </div>
-    </div>
-  )
-}
 
 function App () {
   const [note, setNote] = useState([])
-  const nota = useRef(null)
+  const notaRef = useRef(null)
 
   const rimuovi = (id) => {
     setNote(prev => prev.filter(nota => nota.id !== id))
-    nota.current.focus() // notare il focus
+    notaRef.current.focus() // notare il focus
   }
 
   const aggiungi = (testo) => {
@@ -52,18 +22,18 @@ function App () {
   }
 
   const handleAggiungi = () => {
-    if (nota.current) {
-      const testo = nota.current?.value
+    if (notaRef.current) {
+      const testo = notaRef.current?.value
       aggiungi(testo)
     }
-    nota.current.value = '' // resettiamo il valore della nuova nota
-    nota.current.focus() // notare il focus
+    notaRef.current.value = '' // resettiamo il valore della nuova nota
+    notaRef.current.focus() // notare il focus
   }
 
   useEffect(() => console.log('note modificate'), [note])
 
   useEffect(() => {
-    nota.current.focus() // focus iniziale sul campo di input
+    notaRef.current.focus() // focus iniziale sul campo di input
   }, [])
 
   return (
@@ -72,7 +42,7 @@ function App () {
       <ul className='list-group col-6'>
         {note && note.map(nota => <Nota key={nota.id} nota={nota} rimuovi={rimuovi} />)}
         <li className='list-group-item'>
-          <AggiungiNota handleAggiungi={handleAggiungi} nota={nota} />
+          <AggiungiNota handleAggiungi={handleAggiungi} notaRef={notaRef} />
         </li>
       </ul>
     </div>
