@@ -1,5 +1,5 @@
 {
-  "name": "base-template",
+  "name": "timeout-example",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -28,5 +28,6 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.2.0",
     "vite": "^7.0.0"
-  }
+  },
+  "description": "esercizio per mostrare come funzionano i timeout"
 }

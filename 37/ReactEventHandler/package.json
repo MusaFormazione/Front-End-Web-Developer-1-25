@@ -1,13 +1,8 @@
 {
-  "name": "base-template",
+  "name": "compito-37-react-event-handler",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "author": {
-    "name": "Gabriele Fontana",
-    "email": "gafreax@gmail.com",
-    "url": "https://github.com/gafreax"
-  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
