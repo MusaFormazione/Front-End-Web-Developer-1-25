@@ -2,7 +2,7 @@ import  { useState } from 'react'
 
 import './App.css'
 
-const listaBottoni = ['primo', 'secondo', 'terzo', 'quarto', 'quinto']
+const listaBottoni = ['rosso', 'giallo', 'verde']
 
 function Button({ children, onClick }) {
   return <button className="btn btn-secondary m-1" onClick={onClick}>{children}</button>
@@ -10,7 +10,9 @@ function Button({ children, onClick }) {
 
 function App () {
   const [lastKey, setLastKey] = useState('')
+  // const [lastEvent, setLastEvent] = useState(null) <== versione con "spreco" di memoria
   const [lastButton, setLastButton] = useState('')
+
   const handleButtonClick = (event) => {
     if (event.target) {
       setLastButton(event.target.textContent)
@@ -21,11 +23,12 @@ function App () {
       <h1>Compito 37: React Event Handler</h1>
       <div className="row">
         <div className="col-6 p-3">
-          <input type="text" className="form-control "
-            placeholder="Type something..." onKeyUp={(e) => setLastKey(e.key)} />
+          <input type="text" className="form-control " placeholder="Scrivi..." onKeyUp={e => setLastKey(e.key)} />
+          {/* <input type="text" className="form-control " placeholder="Scrivi..." onKeyUp={setLastEvent} /> */}
         </div>
         <div className="col-6 p-3">
           <p>Ultimo tasto premuto: <b>{lastKey}</b></p>
+          {/* <b>{lastEvent.key}</b> */}
       </div>
       <div className="row">
         <div className="col-6">
