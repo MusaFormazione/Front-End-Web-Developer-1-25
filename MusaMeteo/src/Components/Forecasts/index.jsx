@@ -1,9 +1,10 @@
 import Hourly from "./Hourly";
+import Daily from "./Daily";
+
 function Forecasts({ weather }) {
-  console.log('Weather data:', weather);
   return <>
     <h3>Forecasts</h3>
-    <table className="table table-bordered">
+    <table className="table table-bordered d-none d-sm-none d-md-none d-lg-block d-xl-block d-xxl-block">
       <thead>
         <tr>
           <th>Time</th>
@@ -12,9 +13,12 @@ function Forecasts({ weather }) {
         </tr>
       </thead>
       <tbody>
-        { weather && weather.map((data, index) => <Hourly key={index} hourly={data} /> )}
+        {weather.hourly.map((data, index) => <Hourly key={index} hourly={data} /> )}
       </tbody>
     </table>
+    <div className="d-block d-sm-block d-md-block d-lg-none d-xl-none d-xxl-none">
+      <Daily weather={weather} />
+    </div>
   </>
 }
 

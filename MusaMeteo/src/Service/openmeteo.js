@@ -12,22 +12,33 @@ async function updateWeatherData({ latitude, longitude }, setWeather) {
     const params = {
     "latitude": latitude,
     "longitude": longitude,
-    "hourly": ["precipitation", "apparent_temperature"],
-	  "forecast_days": 1
+    "daily": ["temperature_2m_max", "temperature_2m_min", "rain_sum", "cloud_cover_mean"],
+    "hourly": ["rain", "temperature_2m", "snowfall","cloud_cover"],
+    "timezone": "Europe/Berlin",
+    "forecast_days": 1
   };
   const responses = await fetchWeatherApi(OPEN_METEO_API_URL, params);
 
   const response = responses[0];
 
-
   const hourly = response.hourly();
+  const daily = response.daily();
 
   const precipitation = hourly.variables(0).valuesArray()
   const apparentTemperature = hourly.variables(1).valuesArray()
 
-  const weatherData = []
+  const weatherData = {
+    hourly: [],
+    daily: {
+      maxTemperature: daily.variables(0).valuesArray(),
+      minTemperature: daily.variables(1).valuesArray(),
+      rainSum: daily.variables(2).valuesArray(),
+      cloudCoverMean: daily.variables(3).valuesArray()
+    }
+  }
+
   for (let i = 0; i < precipitation.length; i++) {
-    weatherData.push({
+    weatherData.hourly.push({
       hour: i + 1 > 12 ? `${i - 12} PM` : `${i} AM`, // Conversione in formato 12 ore
       precipitation: precipitation[i],
       temperature: apparentTemperature[i]
