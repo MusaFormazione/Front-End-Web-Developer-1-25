@@ -3,13 +3,13 @@ import Daily from "./Daily";
 
 function Forecasts({ weather }) {
   return <>
-    <h3>Forecasts</h3>
+    <h3>Previsione Giornaliera</h3>
     <table className="table table-bordered d-none d-sm-none d-md-none d-lg-block d-xl-block d-xxl-block">
       <thead>
         <tr>
-          <th>Time</th>
-          <th>Precipitation (mm)</th>
-          <th>Temperature (C)</th>
+          <th>Ora</th>
+          <th>Precipitazioni (mm)</th>
+          <th>Temperatura (C)</th>
         </tr>
       </thead>
       <tbody>

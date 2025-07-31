@@ -9,7 +9,7 @@ import { fetchWeatherApi } from 'openmeteo';
 const OPEN_METEO_API_URL = "https://api.open-meteo.com/v1/forecast";
 
 async function updateWeatherData({ latitude, longitude }, setWeather) {
-    const params = {
+  const params = {
     "latitude": latitude,
     "longitude": longitude,
     "daily": ["temperature_2m_max", "temperature_2m_min", "rain_sum", "cloud_cover_mean"],
@@ -18,7 +18,8 @@ async function updateWeatherData({ latitude, longitude }, setWeather) {
     "forecast_days": 1
   };
   const responses = await fetchWeatherApi(OPEN_METEO_API_URL, params);
-
+  // equivale a:
+  // const [ response ] = await fetchWeatherApi(OPEN_METEO_API_URL, params);
   const response = responses[0];
 
   const hourly = response.hourly();

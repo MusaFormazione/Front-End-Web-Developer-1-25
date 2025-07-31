@@ -1,8 +1,8 @@
-function Hourly({ hourly }) {
+function Hourly({ hourly: { hour, precipitation, temperature } }) {
   return <tr>
-      <td>{hourly.hour}</td>
-      <td>{hourly.precipitation} mm</td>
-      <td>{Math.round(hourly.temperature)} °C</td>
+      <td>{hour}</td>
+      <td>{precipitation.toFixed(2)} mm</td>
+      <td>{Math.round(temperature)} °C</td>
     </tr>
 }
 

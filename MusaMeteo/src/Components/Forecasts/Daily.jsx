@@ -14,8 +14,8 @@ function DailyForecast({ weather }) {
   }, [weather]);
 
   return <div className="daily-forecast">
-      <p>Average Temperature: {Math.round(averageTemperature)}°C</p>
-      <p>Average Precipitation: {Math.round(averagePrecipitation)}mm</p>
+      <p>Temperatura Media: {Math.round(averageTemperature)} °C</p>
+      <p>Precipitazioni Medie: {averagePrecipitation.toFixed(2)} mm</p>
     </div>
 }
 export default DailyForecast

@@ -29,20 +29,20 @@ function App () {
     const id = setTimeout(() => {
       setMsgHidden(true)
     }, 5000)
+
     return () => clearInterval(id)
   }, [])
 
   return <div className="container">
       <h1>Compito Time</h1>
       <p>contatore {count}</p>
-      <button className="btn btn-success" onClick={startCounter}>
+      <button className="btn btn-success m-2" onClick={startCounter}>
         Start
       </button>
-      <button className="btn btn-danger" onClick={stopCounter}>
+      <button className="btn btn-danger m-2" onClick={stopCounter}>
         Stop
       </button>
-      { !msgHidden && <div className="alert alert-info">
-        Ciao sono un messaggio che scompare dopo 5 secondi</div> }
+      { !msgHidden && <div className="alert alert-info m-2"> Ciao sono un messaggio che scompare dopo 5 secondi</div> }
 
     </div>
 }
