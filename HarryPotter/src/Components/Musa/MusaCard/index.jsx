@@ -2,12 +2,12 @@ import './style.css'
 
 // image: { src, portrait = false }
 // action: { label, callback }
-function MusaCard({ children, title, image, action }) {
+function MusaCard ({ children, title, image, action }) {
   return (
     <div className='card shadow m-1'>
       {!image.portrait && <img src={image.src} className='img-card-top' alt={title} />}
       <div className='card-body'>
-        <h5 className={`card-title ${image.portrait && 'portrait'}`} >
+        <h5 className={`card-title ${image.portrait && 'portrait'}`}>
           {image.portrait && <div className='portrait'>
             <img src={image.src} className='portrait' alt={title} />
           </div>}

@@ -1,15 +1,14 @@
 const style = {
   width: '280px',
   height: '280px',
-  border: '1px solid black',
+  border: '1px solid black'
 }
 
-
-function ColorDiv({ color }) {
+function ColorDiv ({ color }) {
   return (
     <div
-      style={{...style, backgroundColor: color}}
-    ></div>
+      style={{ ...style, backgroundColor: color }}
+    />
   )
 }
 

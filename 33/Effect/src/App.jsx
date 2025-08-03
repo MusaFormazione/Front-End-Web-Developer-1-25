@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
-function App() {
-
+function App () {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -49,22 +48,25 @@ function App() {
     fetchData()
   }, [postCount])
 
-  return <div className='container p-4'>
-    <h1>useEffect</h1>
-    { loading && <h2>Loading...</h2> }
-    { error && <p className='alert alert-danger'>Error: {error}</p> }
-    { data && (
-      <div className='container p-4'>
-        <h2>{data.title}</h2>
-        <h5>Post numero: {postCount}</h5>
-        <p>{data.body}</p>
-      </div>
-    )}
-    <p>Questo esempio mostra come utilizzare useEffect per effettuare una chiamata API al caricamento del componente.
-    Il risultato viene memorizzato nello stato e visualizzato una volta che il caricamento è completato.</p>
-    <h2>useEffect con dipendenza</h2>
-    <button className='btn btn-secondary' onClick={() => setPostCount(postCount + 1)}>Carica post {postCount + 1}</button>
-  </div>
+  return (
+    <div className='container p-4'>
+      <h1>useEffect</h1>
+      {loading && <h2>Loading...</h2>}
+      {error && <p className='alert alert-danger'>Error: {error}</p>}
+      {data && (
+        <div className='container p-4'>
+          <h2>{data.title}</h2>
+          <h5>Post numero: {postCount}</h5>
+          <p>{data.body}</p>
+        </div>
+      )}
+      <p>Questo esempio mostra come utilizzare useEffect per effettuare una chiamata API al caricamento del componente.
+        Il risultato viene memorizzato nello stato e visualizzato una volta che il caricamento è completato.
+      </p>
+      <h2>useEffect con dipendenza</h2>
+      <button className='btn btn-secondary' onClick={() => setPostCount(postCount + 1)}>Carica post {postCount + 1}</button>
+    </div>
+  )
 }
 
 export default App

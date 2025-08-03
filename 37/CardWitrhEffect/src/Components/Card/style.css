@@ -1,0 +1,9 @@
+.image-with-effect {
+  object-fit: none;
+}
+.image-with-effect:hover {
+  object-fit: cover;
+  cursor: pointer;
+}
+
+

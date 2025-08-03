@@ -36,7 +36,7 @@ const fetchCharacters = async (setCharacters, setError, setLoading) => {
   setLoading(false) // Imposta il caricamento a false dopo aver ottenuto i dati
 }
 
-function App() {
+function App () {
   // Inizializza lo stato per le pagine attive
   // NOTA: questa struttura è dichiarata dentro il componente App per evitare
   // di dover gestire il setPageList come parametro di updatePageList
@@ -69,10 +69,10 @@ function App() {
     setEsempio(prev => prev + ' Mondo')
     console.log('Updating page list setting active:', activePage)
     setPageList(prevList => prevList.map(item => ({
-          ...item, // Destruttura l'oggetto esistente aggiungendo (forzando) la proprietà active
-          active: item.id.toLowerCase() === activePage.toLowerCase() // active true SOLO se activePage
-        })
-      )
+      ...item, // Destruttura l'oggetto esistente aggiungendo (forzando) la proprietà active
+      active: item.id.toLowerCase() === activePage.toLowerCase() // active true SOLO se activePage
+    })
+    )
     )
   }
 
@@ -101,25 +101,25 @@ function App() {
       </MusaRow>
       <MusaRow>
         <MusaCol className='p-3'>
-          <MusaNavbar items={pageList} title="Harry Potter" />
+          <MusaNavbar items={pageList} title='Harry Potter' />
         </MusaCol>
       </MusaRow>
       <MusaRow>
         {/* charactersActive && <p> elenco dei personaggi</p> */}
         {pageList.find(i => i.id === CHARACTERS)?.active &&
-          <HPCharacterList characters={characters} loading={loading}
-            error={error.find(i => i.id === CHARACTERS)?.error} />
-        }
+          <HPCharacterList
+            characters={characters} loading={loading}
+            error={error.find(i => i.id === CHARACTERS)?.error}
+          />}
         {pageList.find(i => i.id === BOOKS)?.active &&
-          <HPBookList books={books} loading={loading}
-            error={error.find(i => i.id === BOOKS)?.error} />
-        }
+          <HPBookList
+            books={books} loading={loading}
+            error={error.find(i => i.id === BOOKS)?.error}
+          />}
         {pageList.find(i => i.id === SPELLS)?.active &&
-          <MusaGhostCardList message={'Magie ancora da implementare'}/>
-        }
+          <MusaGhostCardList message='Magie ancora da implementare' />}
         {pageList.find(i => i.id === HOUSES)?.active &&
-          <MusaAlert>Case da implementare</MusaAlert>
-        }
+          <MusaAlert>Case da implementare</MusaAlert>}
       </MusaRow>
     </MusaContainer>
   )

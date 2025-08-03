@@ -1,6 +1,6 @@
-function MusaTitle({ children }) {
+function MusaTitle ({ children }) {
   return (
-    <h1 className={`musa-title display-1 text-center`}>
+    <h1 className='musa-title display-1 text-center'>
       {children}
     </h1>
   )

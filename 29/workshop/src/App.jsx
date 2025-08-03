@@ -13,12 +13,13 @@ const cards = [
   { id: 8, title: 'Sunset Glow', image: 'https://picsum.photos/id/18/200/300/' }
 ]
 
-function App() {
-
-  return <>
-    <Title>Galleria di Immagini</Title>
-    <CardList cards={cards} />
-  </>
+function App () {
+  return (
+    <>
+      <Title>Galleria di Immagini</Title>
+      <CardList cards={cards} />
+    </>
+  )
 }
 
 export default App

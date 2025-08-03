@@ -1,4 +1,4 @@
-function MusaRow({ children, className = '' }) { // esponiamo anche una classe opzionale
+function MusaRow ({ children, className = '' }) { // esponiamo anche una classe opzionale
   return (
     <div className={`row ${className}`}>
       {children}

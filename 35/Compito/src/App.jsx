@@ -3,7 +3,7 @@ import User from './User'
 
 import './App.css'
 
-function App() {
+function App () {
   const [users, setUsers] = useState([])
   useEffect(() => {
     const fetchUsers = async () => {
@@ -15,15 +15,16 @@ function App() {
   }, [])
 
   const elementClass = 'col-12 col-md-4 col-lg-4 col-xl-3 col-xxl-3 p-2'
-  return <div className='container'>
-    <h1>Compito</h1>
-    <div className='row'>
-    { users && users.map(user => <div key={user.id} className={elementClass}>
-      <User key={user.id} user={user} />
-      </div>)
-    }
+  return (
+    <div className='container'>
+      <h1>Compito</h1>
+      <div className='row'>
+        {users && users.map(user => <div key={user.id} className={elementClass}>
+          <User key={user.id} user={user} />
+        </div>)}
+      </div>
     </div>
-  </div>
+  )
 }
 
 export default App

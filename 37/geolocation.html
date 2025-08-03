@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <script>
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        console.log('Posizione recuperata:', position);
+        document.getElementById('root').innerHTML = `
+          <h1>La tua posizione</h1>
+          <p>Latitudine: ${position.coords.latitude}</p>
+          <p>Longitudine: ${position.coords.longitude}</p>
+        `;
+      },
+      error => {
+        console.error('Errore nel recupero della posizione:', error);
+      }
+    )
+
+  </script>
+  </head>
+  <body>
+    <button onClick="getPosition">Recupera la tua posizione</button>
+    <div id="root"></div>
+
+  </body>
+</html>
