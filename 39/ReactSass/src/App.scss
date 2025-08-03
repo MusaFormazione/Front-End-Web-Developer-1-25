@@ -1,0 +1,16 @@
+$base-dimension: 4px;
+
+div.esempi {
+    background-color: darkkhaki;
+    color: black;
+    font-family: fantasy;
+    .esempio {
+        padding: calc(2 * $base-dimension);
+        margin: calc(2 * $base-dimension);
+    }
+
+    .esempio-2 {
+        padding: calc(4 * $base-dimension);
+        margin: calc(4 * $base-dimension);
+    }
+}
