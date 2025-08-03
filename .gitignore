@@ -130,4 +130,5 @@ dist
 
 
 GEMINI.md
+# Ignore all files that Contains "Gabriele Fontana - Front End"
 .*Gabriele\ Fontana\ -\ Front\ End.*
