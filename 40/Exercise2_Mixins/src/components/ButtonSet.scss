@@ -1,0 +1,36 @@
+// Definiamo un mixin per le varianti dei pulsanti
+@mixin button-variant($bg-color, $text-color, $border-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: 1px solid $border-color;
+
+  // Aggiungiamo un effetto hover per migliorare l'interazione
+  &:hover {
+    background-color: darken($bg-color, 10%);
+    border-color: darken($border-color, 10%);
+  }
+}
+
+// Stile base per tutti i pulsanti
+.btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s, border-color 0.3s;
+  text-transform: uppercase;
+}
+
+// Creiamo le varianti dei pulsanti utilizzando il mixin
+.btn-primary {
+  @include button-variant(#3498db, #fff, #2980b9);
+}
+
+.btn-success {
+  @include button-variant(#2ecc71, #fff, #27ae60);
+}
+
+.btn-danger {
+  @include button-variant(#e74c3c, #fff, #c0392b);
+}
