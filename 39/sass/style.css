@@ -6,6 +6,7 @@ p {
   border-radius: 5px;
 }
 p span {
+  padding: 0 8px;
   font-weight: bold;
   background: DarkKhaki;
 }
