@@ -1,4 +1,9 @@
 $base-dimension: 4px;
+$color-max: 255;
+$color-percentage: 0.1;
+$base-green: calc($color-percentage * $color-max);
+$base-blue: calc($color-percentage * $color-max);
+$base-red: calc($color-percentage * $color-max);
 
 div.esempi {
     background-color: darkkhaki;
@@ -7,6 +12,7 @@ div.esempi {
     .esempio {
         padding: calc(2 * $base-dimension);
         margin: calc(2 * $base-dimension);
+        color: rgb($base-red, $base-green, $base-blue);
     }
 
     .esempio-2 {
