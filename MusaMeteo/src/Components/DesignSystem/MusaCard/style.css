@@ -1,0 +1,32 @@
+div.portrait {
+  min-height: 140px;
+  min-width: 140px;
+  max-width: 140px;
+  max-height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+img.portrait {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+
+h5.portrait {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+}
+
+/* media query per schermi piccoli, fino a larghezza di 768*/
+@media screen and (max-width: 768px) {
+  h5.portrait {
+    flex-direction: column;
+    max-width: 200px;
+    max-height: 200px;
+  }
+}

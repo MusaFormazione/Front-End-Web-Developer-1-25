@@ -1,0 +1,35 @@
+// Definiamo una classe placeholder per gli stili base delle allerte
+%alert-base {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-family: sans-serif;
+}
+
+@mixin create-alert($color, $background-color, $border-color) {
+  @extend %alert-base;
+  color: $color;
+  background-color: $background-color;
+  border-color: $border-color;
+}
+
+// Stile generale per tutte le allerte
+.alert {
+  // Variante per le allerte di informazione
+  &-info {
+    @include create-alert(#31708f, #d9edf7, #bce8f1);
+  }
+
+  &-success {
+    @include create-alert(#3c763d, #dff0d8, #d6e9c6);
+  }
+
+  &-warning {
+    @include create-alert(#8a6d3b, #fcf8e3, #faebcc);
+  }
+
+  &-danger {
+    @include create-alert(#a94442, #f2dede, #ebccd1);
+  }
+}

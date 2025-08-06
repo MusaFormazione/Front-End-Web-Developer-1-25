@@ -3,9 +3,15 @@ import { useState, useEffect } from 'react';
 import updateGeolocation from './Service/geolocalization'
 import updateWeatherData from './Service/openmeteo'
 
-import Position from './Components/Position';
-import Forecasts from './Components/Forecasts';
-import Debug from './Components/Debug';
+import Position from './Components/Weather/Position';
+import Forecasts from './Components/Weather/Forecasts';
+import Debug from './Components/Weather/Debug';
+
+import MusaContainer from './Components/DesignSystem/MusaLayout/MusaContainer';
+import MusaRow from './Components/DesignSystem/MusaLayout/MusaRow';
+import MusaCol from './Components/DesignSystem/MusaLayout/MusaCol';
+import MusaTitle from './Components/DesignSystem/MusaTitle';
+import { MusaAlert } from './Components/DesignSystem/MusaAlert';
 
 import './App.css'
 
@@ -34,21 +40,23 @@ function App () {
     setDebug(weather)
   }, [weather]);
 
-  return <div className="container">
-      <h1 className='h2'>Musa Meteo</h1>
-      <div className="row">
-        <div className="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+  return <MusaContainer>
+      <MusaTitle>Musa Meteo</MusaTitle>
+      <MusaRow>
+        <MusaCol xs={12} sm={12} md={4} lg={4} xl={4} xxl={4}>
           { weather && weather.hourly ?
             <Forecasts weather={weather} /> :
-            <p className="alert alert-info">Caricamento...</p>
+            <MusaAlert>Caricamento...</MusaAlert>
           }
-        </div>
-        <div className="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        </MusaCol>
+      </MusaRow>
+      <MusaRow>
+        <MusaCol xs={12} sm={12} md={8} lg={8} xl={8} xxl={8}>
           <Position geolocation={geolocation} />
-        </div>
-      </div>
+        </MusaCol>
+      </MusaRow>
       <Debug>{debug}</Debug>
-    </div>
+    </MusaContainer>
 }
 
 export default App

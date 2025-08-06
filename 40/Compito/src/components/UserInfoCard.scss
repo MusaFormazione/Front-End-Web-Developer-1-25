@@ -1,0 +1,44 @@
+// Definiamo le variabili per il tema
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$text-color: #333;
+$card-bg-color: #f9f9f9;
+$border-radius: 8px;
+$border-color: #ddd;
+$box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+$border: 1px solid $border-color;
+$border-hover: 4px solid $border-color;
+
+
+// Stile base della card
+.user-info-card {
+  background-color: $card-bg-color;
+  border: $border;
+  border-radius: $border-radius;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: $box-shadow;
+  font-family: sans-serif;
+  color: $text-color;
+  max-width: 400px;
+
+  // Utilizziamo il nesting per gli elementi interni
+  h2 {
+    color: $primary-color;
+    margin-top: 0;
+  }
+
+  .email {
+    color: $secondary-color;
+    font-style: italic;
+  }
+
+  .bio {
+    line-height: 1.6;
+  }
+}
+
+.user-info-card:hover {
+  cursor: pointer;
+  border: $border-hover;
+}

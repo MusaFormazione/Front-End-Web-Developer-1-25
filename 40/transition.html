@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Base HTML</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h1 {
+          color: #333;
+          padding: 8px;
+          border: 2px solid blue;
+          border-radius: 8px;
+          width: 280px;
+          transition: background-color 2s ease-in, color 2s ease-in;
+          margin: 20px auto;
+          font-size: 48px
+        }
+
+        h1:hover {
+          background:blue;
+          color: white;
+          cursor: pointer
+        }
+
+        .e {
+          background: #f0f0f0;
+          padding: 16px;
+          font-size: 48px;
+          cursor: pointer;
+          color: darkolivegreen;
+        }
+        .e:hover {
+          cursor: pointer;
+        }
+        .e span {
+          color: darkblue;
+          transition: margin 2s, color 2s;
+        }
+        .e span:hover {
+          margin: 8px;
+          color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>transition</h1>
+    <div class='e'> <span> | </span> Element </div>
+</body>
+</html>
+
