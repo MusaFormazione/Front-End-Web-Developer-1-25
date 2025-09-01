@@ -57,22 +57,29 @@ $transition: 0.4s;
 .card--light {
     background: $color-light;
     color: $text-light;
-    .sole {
-        background-color: lightyellow;
+    &__climbing{
+        background-color: lightgoldenrodyellow;
     }
-    .luna {
-        background-color: lightblue;
+
+    &__calcio{
+        background-color: white;
+        color: darkslateblue;
+        font-size: large;
     }
 }
 
 .card--dark {
     background: $color-dark;
     color: $text-dark;
-    .sole {
+
+    &__climbing{
         background-color: darkslategray;
     }
-    .luna {
-        background-color: #222;
+
+    &__calcio{
+        background-color: dimgray;
+        color: white;
+        font-size: large;
     }
 }
 

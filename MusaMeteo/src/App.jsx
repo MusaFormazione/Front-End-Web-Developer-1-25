@@ -13,6 +13,7 @@ import MusaCol from './Components/DesignSystem/MusaLayout/MusaCol';
 import MusaTitle from './Components/DesignSystem/MusaTitle';
 import { MusaAlert } from './Components/DesignSystem/MusaAlert';
 
+
 import './App.css'
 
 const initalGeolocation = {
@@ -45,7 +46,7 @@ function App () {
       <MusaRow>
         <MusaCol xs={12} sm={12} md={4} lg={4} xl={4} xxl={4}>
           { weather && weather.hourly ?
-            <Forecasts weather={weather} /> :
+            <Forecasts weather={weather} setDebug={setDebug} /> :
             <MusaAlert>Caricamento...</MusaAlert>
           }
         </MusaCol>

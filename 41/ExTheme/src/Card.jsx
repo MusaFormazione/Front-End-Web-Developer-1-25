@@ -6,7 +6,7 @@ function Card({ title, description, icon, theme }) {
   const toggleTheme = () => setCurrentTheme(currentTheme === 'light' ? 'dark' : 'light')
 
   return (
-    <div className={`card card--${currentTheme}`}>
+    <div className={`card card--${currentTheme} card--${currentTheme}__${title.toLowerCase()}`}>
       <span className="card__icon" aria-label="icon">{icon}</span>
       <h2 className="card__title">{title}</h2>
       <p className="card__desc">{description}</p>
