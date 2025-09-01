@@ -39,7 +39,9 @@ function App () {
         </div>
         <ul className="list-group m-1 m-md-3 col-12 col-md-6">
           {todos.map((todo, index) => (
-            <Todo key={index} todo={todo} index={index}
+            <Todo key={index}
+              todo={todo}
+              index={index}
               toggleTodoCompletion={toggleTodoCompletion}
               handleDeleteTodo={handleDeleteTodo} />
           ))}
