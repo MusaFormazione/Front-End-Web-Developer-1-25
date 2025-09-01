@@ -1,0 +1,28 @@
+$transition: 0.5s;
+$primary-color: #007bff;
+$completed-text-decoration: line-through;
+$completed-color: darkslategrey;
+$completed-background-color: lightgrey;
+
+body {
+    color: $primary-color;
+}
+
+.completed {
+    text-decoration: $completed-text-decoration;
+    color: $completed-color;
+    background-color: $completed-background-color;
+    transition: text-decoration $transition, color $transition, background-color $transition;
+}
+
+.todos {
+    &:hover {
+        cursor: pointer;
+        background-color: lightsteelblue;
+        transition: background-color 0.3s;
+    }
+
+    .btn {
+        font-family: "Comic Sans MS", "Comic Neue", cursive, sans-serif;
+    }
+}

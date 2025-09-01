@@ -1,0 +1,90 @@
+@use 'sass:color';
+$color-light: #f9f9f9;
+$color-dark: #222;
+$text-light: #222;
+$text-dark: #f9f9f9;
+$primary: #4e8cff;
+$transition: 0.4s;
+
+.card {
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    margin: 1rem;
+    transition: background-color $transition, color $transition;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__icon {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__desc {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    &__btn {
+        background: $primary;
+        color: #fff;
+        border: none;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1.2rem;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color $transition, transform $transition;
+
+        &:hover {
+            background-color: darken($primary, 10%);
+            transform: scale(1.05);
+        }
+
+        &:active {
+            background-color: color.adjust($primary, $lightness: 10%);
+            transform: scale(0.98);
+        }
+    }
+}
+
+.card--light {
+    background: $color-light;
+    color: $text-light;
+    .sole {
+        background-color: lightyellow;
+    }
+    .luna {
+        background-color: lightblue;
+    }
+}
+
+.card--dark {
+    background: $color-dark;
+    color: $text-dark;
+    .sole {
+        background-color: darkslategray;
+    }
+    .luna {
+        background-color: #222;
+    }
+}
+
+.cards {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
