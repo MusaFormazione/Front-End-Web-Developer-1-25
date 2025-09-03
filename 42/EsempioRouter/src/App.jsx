@@ -1,5 +1,10 @@
 
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router'
+import { BrowserRouter as Router, Routes, Route, useNavigate, Link } from 'react-router'
+
+import NotFound from './Pages/NotFound';
+import ErrorPage from './Pages/ErrorPage';
+import Login from './Pages/Login';
+
 import './App.css'
 
 function Navbar() {
@@ -12,6 +17,7 @@ function Navbar() {
     </div>
   </nav>
 }
+
 function Home() {
   return <div className='container'>
       <h2>Home</h2>
@@ -19,7 +25,8 @@ function Home() {
       <p>Benvenuto nella home page!</p>
       <p>
         Per andare alle altre sezioni prova a digitare
-        /about o /contact nell'url del browser
+        /about o /contact nell'url del browser<br />
+        <Link to="/contact">Vai alla pagina contatti</Link>
       </p>
     </div>
 }
@@ -52,10 +59,13 @@ function Contact() {
 function App () {
   return <Router>
     <Routes>
-      <Route path='/' element={<Home />} />
+      <Route exact path='/' element={<Home />} />
       <Route path='/home' element={<Home />} />
       <Route path='/about' element={<About />} />
       <Route path='/contact' element={<Contact />} />
+      <Route path='/error' element={<ErrorPage />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='*' element={<NotFound />} />
     </Routes>
   </Router>
 }
