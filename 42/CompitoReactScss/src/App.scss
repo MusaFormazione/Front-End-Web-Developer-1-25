@@ -1,0 +1,85 @@
+// Variabili SCSS
+$color-bg: #f9f9f9;
+$color-card: #fff;
+$color-winner: #ffe066;
+$color-border: #ddd;
+$color-text: #222;
+$color-accent: #4e8cff;
+$breakpoint-mobile: 768px;
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px;
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 16px;
+  }
+}
+
+.meme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+
+  @media (max-width: $breakpoint-mobile) {
+    gap: 16px;
+  }
+}
+
+.meme-card {
+  background: $color-card;
+  border: 2px solid $color-border;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    border-color: $color-accent;
+    box-shadow: 0 4px 16px rgba(78, 140, 255, 0.15);
+  }
+
+  &:active {
+    border-color: $color-winner;
+  }
+
+  &--winner {
+    border-color: $color-winner;
+    box-shadow: 0 0 24px $color-winner;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 8px;
+  }
+}
+
+.meme-img {
+  width: 100%;
+  max-width: 180px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.meme-text {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: $color-text;
+}
+
+.meme-votes {
+  font-weight: bold;
+  color: $color-accent;
+}
+
+.funny-msg {
+  margin-top: 32px;
+  padding: 16px;
+  background: $color-winner;
+  border-radius: 16px;
+  font-size: 19px;
+  text-align: center;
+}

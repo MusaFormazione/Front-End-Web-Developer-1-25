@@ -129,6 +129,10 @@ dist
 !.yarn/versions
 
 
+# Ignore AI files
 GEMINI.md
+COPILOT.md
+PROMPTS.md
+
 # Ignore all files that Contains "Gabriele Fontana - Front End"
 *Gabriele\ Fontana\ -\ Front\ End*
