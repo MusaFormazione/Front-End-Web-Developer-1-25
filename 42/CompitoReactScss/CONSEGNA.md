@@ -1,7 +1,7 @@
 # Esercizio: Meme Card Game
 
 ## Obiettivo
-Creare una piccola applicazione React che mostri una serie di "Meme Card" divertenti, con immagini, testo e emoji. L'utente può cliccare su una card per "votare" il meme più divertente. L'app deve usare SCSS per lo stile.
+Creare una piccola applicazione _React_ che mostri una serie di *"Meme Card"* divertenti, con immagini, testo e emoji. L'utente può cliccare su una card per "votare" il meme più divertente. L'app deve usare SCSS per lo stile.
 Come extra l'app puo' essere responsive, utilizzando le utility di bootstrap o media queries in SCSS, esempio:
 ```scss
 .carta {
