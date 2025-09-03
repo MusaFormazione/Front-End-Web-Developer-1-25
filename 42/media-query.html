@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Query Example</title>
+    <style>
+      :root {
+        --main-background-color: lightblue;
+        --main-accent-color: lightcyan;
+        --mobile-background-color: lightyellow;
+        --mobile-accent-color: gold;
+        --sm-breakpoint: 768px;
+        --main-container-width: 40%;
+        --mobile-container-width: 80%;
+        --mobile-base-spacing-unit: 8px;
+        --main-base-spacing-unit: 12px;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        flex-direction: column;
+      }
+
+      p {
+        border: 1px solid var(--mobile-accent-color);
+        border-radius: 8px;
+        padding: var(--mobile-base-spacing-unit);
+        background-color: var(--mobile-background-color);
+      }
+
+      .container {
+        width: var(--mobile-container-width);
+        margin: 0 auto;
+        padding: calc(var(--main-base-spacing-unit) * 4);
+      }
+
+      .container-to-print {
+        display: none;
+      }
+
+      /* todo controllo con variabile */
+      @media (min-width: var(--sm-breakpoint)) {
+        body {
+          display: flex;
+          flex-direction: row;
+        }
+        p {
+          background-color: var(--mobile-background-color);
+          border: 1px solid var(--mobile-accent-color);
+          padding: calc(var(--main-base-spacing-unit) * 2);
+        }
+        .container {
+          width: var(--main-container-width);
+        }
+      }
+
+      @media print {
+        body {
+          background-color: white;
+          font-size: 64px;
+        }
+        .container {
+          display: none;
+        }
+        .container-to-print {
+          display: block;
+        }
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Primo Blocco</h2>
+        <p>Questo è un esempio di utilizzo delle media query in CSS.</p>
+    </div>
+    <div class="container">
+        <h2>Secondo Blocco</h2>
+        <p>Questo è un esempio di utilizzo delle media query in CSS.</p>
+    </div>
+    <div class="container-to-print">
+      <p>Semplice riepologo visibile solo a stampa</p>
+    </div>
+</body>
+</html>
