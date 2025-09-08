@@ -1,0 +1,342 @@
+
+
+// Importo il modulo color per usare color.adjust
+@use 'sass:color';
+
+// Variabili SCSS
+$primary-color: #4e8cff;
+$secondary-color: #ff6b6b;
+$bg-color: #f9f9f9;
+$text-color: #333;
+$card-bg: #ffffff;
+$card-border: #e0e0e0;
+$card-shadow: rgba(0, 0, 0, 0.1);
+$card-hover-shadow: rgba(0, 0, 0, 0.2);
+$favorite-color: #ffce44;
+
+// Breakpoints
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 992px;
+
+// Importo i file parziali
+@import 'additional';
+
+// Mixin per il layout responsive
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+// Stili globali
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: $bg-color;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+}
+
+// Container principale
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
+  @include mobile {
+    padding: 10px;
+  }
+}
+
+// Stili per il NavBar
+.navbar {
+  background-color: $primary-color;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px $card-shadow;
+
+  &__logo {
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    text-decoration: none;
+  }
+
+  &__links {
+    display: flex;
+    gap: 20px;
+
+    a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      &.active {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+
+  @include mobile {
+    flex-direction: column;
+    padding: 16px;
+
+    &__links {
+      margin-top: 12px;
+      gap: 10px;
+    }
+  }
+}
+
+// Stili per le CityCard
+.city-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+}
+
+.city-card {
+  background-color: $card-bg;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px $card-shadow;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px $card-hover-shadow;
+  }
+
+  &__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__content {
+    padding: 16px;
+  }
+
+  &__title {
+    margin: 0 0 8px;
+    font-size: 20px;
+    color: $primary-color;
+  }
+
+  // crea un cerchietto bianco in alto a destra della card
+  &__favorite {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px $card-shadow;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &--active svg {
+      fill: $favorite-color;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: #ccc;
+      transition: fill 0.3s;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 16px;
+    background-color: $primary-color;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: color.adjust($primary-color, $lightness: -10%);
+    }
+  }
+}
+
+// Stili per la pagina dettaglio città
+.city-detail {
+  background-color: $card-bg;
+  border-radius: 8px;
+  padding: 24px;
+  margin-top: 32px;
+  box-shadow: 0 4px 12px $card-shadow;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 32px;
+    color: $primary-color;
+
+    @include mobile {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 24px;
+  }
+
+  &__description {
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  &__fun-fact {
+    background-color: rgba($secondary-color, 0.1);
+    padding: 16px;
+    border-radius: 8px;
+    border-left: 4px solid $secondary-color;
+    margin-bottom: 24px;
+
+    h3 {
+      margin-top: 0;
+      color: $secondary-color;
+    }
+  }
+
+  &__easter-egg {
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 24px;
+  }
+
+  &__back {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: $primary-color;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: color.adjust($primary-color, $lightness: -10%);
+    }
+  }
+}
+
+// Stili per pagina About
+.about {
+  background-color: $card-bg;
+  border-radius: 8px;
+  padding: 24px;
+  margin-top: 32px;
+  box-shadow: 0 4px 12px $card-shadow;
+
+  &__title {
+    color: $primary-color;
+    margin-top: 0;
+  }
+
+  &__content {
+    line-height: 1.6;
+  }
+}
+
+// Stili per pagina NotFound
+.not-found {
+  text-align: center;
+  padding: 40px;
+  margin-top: 32px;
+
+  &__title {
+    font-size: 72px;
+    margin: 0;
+    color: $secondary-color;
+  }
+
+  &__subtitle {
+    font-size: 24px;
+    margin: 16px 0 32px;
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: $primary-color;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: color.adjust($primary-color, $lightness: -10%);
+    }
+  }
+}
+
+// Animazione per l'easter egg
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.easter-egg-active {
+  color: $secondary-color;
+  animation: pulse 1s infinite;
+}
