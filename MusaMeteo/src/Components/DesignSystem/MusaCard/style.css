@@ -22,6 +22,12 @@ h5.portrait {
   gap: 32px;
 }
 
+img {
+  border-radius: var(--bs-border-radius);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
 /* media query per schermi piccoli, fino a larghezza di 768*/
 @media screen and (max-width: 768px) {
   h5.portrait {

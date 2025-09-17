@@ -25,6 +25,7 @@ const initalGeolocation = {
 function App () {
   const [geolocation, setGeolocation] = useState(initalGeolocation);
   const [weather, setWeather] = useState([]);
+  const [positionVisible, setPositionVisible] = useState(false);
   const [debug, setDebug] = useState(null);
 
   useEffect(() => {
@@ -46,14 +47,14 @@ function App () {
       <MusaRow>
         <MusaCol xs={12} sm={12} md={4} lg={4} xl={4} xxl={4}>
           { weather && weather.hourly ?
-            <Forecasts weather={weather} setDebug={setDebug} /> :
+            <Forecasts weather={weather} setDebug={setDebug} positionState={{ setPositionVisible, positionVisible }} /> :
             <MusaAlert>Caricamento...</MusaAlert>
           }
         </MusaCol>
       </MusaRow>
       <MusaRow>
         <MusaCol xs={12} sm={12} md={8} lg={8} xl={8} xxl={8}>
-          <Position geolocation={geolocation} />
+          {positionVisible && <Position geolocation={geolocation} />}
         </MusaCol>
       </MusaRow>
       <Debug>{debug}</Debug>
