@@ -116,5 +116,3 @@ Quando vengono aggiunti nuovi esempi o materiali al repository, puoi aggiornare 
    git merge upstream/main
    git push
    ```
-
-Buon lavoro con gli esempi del corso di Front End Web Developer!

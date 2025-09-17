@@ -1,0 +1,16 @@
+{
+  "name": "conta-vocali",
+  "version": "1.0.0",
+  "description": "Esercizio Jest: conta le vocali in una stringa",
+  "main": "contaVocali.js",
+  "type": "module",
+  "scripts": {
+    "start": "node contaVocali.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^30.1.3"
+  }
+}
