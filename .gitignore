@@ -133,6 +133,10 @@ dist
 GEMINI.md
 COPILOT.md
 PROMPTS.md
+AGENT.md
 
 # Ignore all files that Contains "Gabriele Fontana - Front End"
 *Gabriele\ Fontana\ -\ Front\ End*
+
+# Ignore all PDF files
+*.pdf
