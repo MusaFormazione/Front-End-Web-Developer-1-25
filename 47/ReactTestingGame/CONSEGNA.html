@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio: "Indovina il Numero" con React e Testing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #444;
+            margin-top: 20px;
+        }
+        h3 {
+            color: #555;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Esercizio: "Indovina il Numero" con React e Testing</h1>
+
+    <h2>Obiettivo</h2>
+    <p>Creare un semplice gioco "Indovina il Numero" utilizzando React e implementare test unitari di base. L'applicazione genera un numero casuale e l'utente deve indovinarlo attraverso suggerimenti che indicano se il numero inserito è troppo alto o troppo basso.</p>
+
+    <h2>Requisiti</h2>
+
+    <h3>1. Componenti React</h3>
+    <ul>
+        <li>Un componente principale <code>Game</code> che gestisce la logica del gioco</li>
+        <li>Un componente <code>GuessForm</code> per l'input dell'utente</li>
+        <li>Un componente <code>Feedback</code> per mostrare i suggerimenti all'utente</li>
+        <li>Un componente <code>ResetButton</code> per ricominciare il gioco</li>
+    </ul>
+
+    <h3>2. Funzionalità</h3>
+    <ul>
+        <li>All'avvio, l'applicazione genera un numero casuale tra 1 e 100</li>
+        <li>L'utente può inserire il suo tentativo in un campo input</li>
+        <li>Dopo ogni tentativo, l'utente riceve un messaggio:
+            <ul>
+                <li>"Troppo alto!" se il numero è maggiore di quello da indovinare</li>
+                <li>"Troppo basso!" se il numero è minore</li>
+                <li>"Hai indovinato!" in caso di successo</li>
+            </ul>
+        </li>
+        <li>Un contatore mostra il numero di tentativi effettuati</li>
+        <li>Un pulsante permette di ricominciare il gioco con un nuovo numero casuale</li>
+    </ul>
+
+    <h3>3. Styled Components con Emotion</h3>
+    <ul>
+        <li>Utilizzare la libreria Emotion per stilizzare i componenti</li>
+        <li>Applicare stili diversi ai messaggi di feedback basati sul risultato</li>
+        <li>Creare un design semplice ma accattivante con transizioni e colori</li>
+    </ul>
+
+    <h3>4. Testing</h3>
+    <ul>
+        <li>Creare test per ogni componente principale</li>
+        <li>Verificare che:
+            <ul>
+                <li>Il componente <code>Game</code> inizializza correttamente lo stato del gioco</li>
+                <li>Il componente <code>GuessForm</code> gestisce correttamente l'input e il submit</li>
+                <li>Il componente <code>Feedback</code> mostra il messaggio corretto in base allo stato</li>
+                <li>Il componente <code>ResetButton</code> resetta correttamente il gioco</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>5. Extra (Opzionali)</h3>
+    <ul>
+        <li>Implementare una modalità con diversi livelli di difficoltà (range di numeri diversi)</li>
+        <li>Aggiungere una visualizzazione della cronologia dei tentativi</li>
+        <li>Aggiungere un limite massimo di tentativi</li>
+    </ul>
+
+    <h2>Suggerimenti</h2>
+    <ul>
+        <li>Usa useState per gestire lo stato del gioco (numero da indovinare, tentativi, ecc.)</li>
+        <li>Per i test unitari, concentrati sul comportamento dei componenti senza usare fireEvent</li>
+        <li>Puoi utilizzare un generatore di numeri casuali come <code>Math.floor(Math.random() * 100) + 1</code></li>
+    </ul>
+</body>
+</html>
