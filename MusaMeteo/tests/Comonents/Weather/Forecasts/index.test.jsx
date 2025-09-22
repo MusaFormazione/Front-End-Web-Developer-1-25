@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import '@testing-library/jest-dom/vitest';
 
-import Forecasts from '.';
+import Forecasts from '../../../../src/Components/Weather/Forecasts/index.jsx';
 
 describe('Forecasts Component', () => {
   it('renders correctly', () => {

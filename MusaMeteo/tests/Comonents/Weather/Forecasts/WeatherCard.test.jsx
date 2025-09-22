@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import '@testing-library/jest-dom/vitest';
 
-import WeatherCard from './WeatherCard';
+import WeatherCard from '../../../../src/Components/Weather/Forecasts/WeatherCard';
 
 describe('WeatherCard Component', () => {
 
