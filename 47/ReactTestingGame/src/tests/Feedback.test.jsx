@@ -22,7 +22,7 @@ describe('Feedback Component', () => {
     // Poiché gli stili vengono applicati direttamente, dobbiamo verificare
     // le proprietà di stile tramite getComputedStyle o direttamente sul DOM
     expect(feedbackElement).toHaveStyle('background-color: rgb(212, 237, 218)')
-    expect(feedbackElement).toHaveStyle('color: rgb(21, 87, 36)')
+    expect(feedbackElement).toHaveStyle('color: #155724')
   })
 
   it('applica lo stile corretto per il messaggio "troppo alto"', () => {
