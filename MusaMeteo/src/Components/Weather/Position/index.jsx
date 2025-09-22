@@ -3,7 +3,7 @@
 // //=> equivale a:
 function Position({ geolocation: { latitude, longitude } }) {
   return (
-    <div className="position">
+    <div className="position shadow p-3 m-2">
       <h2>Posizione</h2>
       <p>Latitudine: <b>{latitude}</b></p>
       <p>Longitudine: <b>{longitude}</b></p>

@@ -17,17 +17,8 @@ describe('Forecasts Component', () => {
     const { container } = render(<Forecasts
       weather={{}}
       setDebug={() => {}}
-      positionState={{ positionVisible: false, setPositionVisible: () => {} }}
       />);
     expect(container).toBeInTheDocument();
   });
 
-  it('renders with navbar', () => {
-    const { container } = render(<Forecasts
-      weather={{daily : { maxTemperature: 20, minTemperature: 10, rainSum: 5 }}}
-      setDebug={() => {}}
-      positionState={{ positionVisible: false, setPositionVisible: () => {} }}
-      />);
-    expect(container.querySelectorAll('#meteo-navbar').length).toBeGreaterThan(0);
-  })
 });

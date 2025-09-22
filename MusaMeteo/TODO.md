@@ -1,0 +1,4 @@
+- Utilizzare wheather code per mostrare dettaglio della previsone
+- Aggiungere visualizzazione alternativa fra card / tabella secondo responsivness
+- Componente daily per fare vedere la previsione della giornata e creare test
+- Componente weekly per fare veder la previsione della settimana e creare test

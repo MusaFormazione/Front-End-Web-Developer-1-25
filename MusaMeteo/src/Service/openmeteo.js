@@ -9,40 +9,69 @@ import { fetchWeatherApi } from 'openmeteo';
 const OPEN_METEO_API_URL = "https://api.open-meteo.com/v1/forecast";
 
 async function updateWeatherData({ latitude, longitude }, setWeather) {
-  const params = {
+  const paramsHourly = {
     "latitude": latitude,
     "longitude": longitude,
-    "daily": ["temperature_2m_max", "temperature_2m_min", "rain_sum", "cloud_cover_mean"],
-    "hourly": ["rain", "temperature_2m", "snowfall","cloud_cover"],
+    "hourly": ["rain", "temperature_2m", "snowfall","cloud_cover", "weather_code"],
     "timezone": "Europe/Berlin",
     "forecast_days": 1
   };
-  const responses = await fetchWeatherApi(OPEN_METEO_API_URL, params);
+  const paramsDaily = {
+    "latitude": latitude,
+    "longitude": longitude,
+    "daily": ["temperature_2m_max", "temperature_2m_min", "weather_code"],
+    "timezone": "Europe/Berlin",
+    "forecast_days": 7
+  };
+  const responsesHourly = await fetchWeatherApi(OPEN_METEO_API_URL, paramsHourly);
+  const responsesDaily = await fetchWeatherApi(OPEN_METEO_API_URL, paramsDaily);
+
   // equivale a:
   // const [ response ] = await fetchWeatherApi(OPEN_METEO_API_URL, params);
-  const response = responses[0];
+  const hourlyData = responsesHourly[0];
+  const dailyData = responsesDaily[0];
 
-  const hourly = response.hourly();
-  const daily = response.daily();
+  const hourly = hourlyData.hourly();
+  const daily = dailyData.daily();
 
-  const precipitation = hourly.variables(0).valuesArray()
-  const apparentTemperature = hourly.variables(1).valuesArray()
+  const hourlyPrecipitations = hourly.variables(0).valuesArray()
+  const hourlyApparentTemperatures = hourly.variables(1).valuesArray()
+  const hourlyCloudCoverValues = hourly.variables(3).valuesArray()
+  const hourlyWeatherCodes = hourly.variables(4).valuesArray()
 
+
+  const dailyTemperaturesMax = daily.variables(0).valuesArray();
+  const dailyTemperaturesMin = daily.variables(1).valuesArray();
+  const dailyWeatherCodes = daily.variables(2).valuesArray();
+console.dir(
+  {
+    dailyTemperaturesMax: dailyTemperaturesMax,
+    dailyTemperaturesMin: dailyTemperaturesMin,
+    dailyWeatherCodes: dailyWeatherCodes
+  }
+)
   const weatherData = {
     hourly: [],
-    daily: {
-      maxTemperature: daily.variables(0).valuesArray(),
-      minTemperature: daily.variables(1).valuesArray(),
-      rainSum: daily.variables(2).valuesArray(),
-      cloudCoverMean: daily.variables(3).valuesArray()
-    }
+    daily: []
   }
 
-  for (let i = 0; i < precipitation.length; i++) {
+  for (let i = 0; i < hourlyPrecipitations.length; i++) {
     weatherData.hourly.push({
       hour: i + 1 > 12 ? `${i - 12} PM` : `${i} AM`, // Conversione in formato 12 ore
-      precipitation: precipitation[i],
-      temperature: apparentTemperature[i]
+      precipitation: hourlyPrecipitations[i],
+      temperature: hourlyApparentTemperatures[i],
+      cloudCover: hourlyCloudCoverValues[i],
+      weather_code: hourlyWeatherCodes[i]
+
+    });
+  }
+
+  for (let i = 0; i < dailyTemperaturesMax.length; i++) {
+    weatherData.daily.push({
+      day: i + 1,
+      temperature_max: dailyTemperaturesMax[i],
+      temperature_min: dailyTemperaturesMin[i],
+      weather_code: dailyWeatherCodes[i]
     });
   }
 
