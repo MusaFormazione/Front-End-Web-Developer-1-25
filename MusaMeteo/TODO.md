@@ -1,4 +1,15 @@
 - Utilizzare wheather code per mostrare dettaglio della previsone
 - Aggiungere visualizzazione alternativa fra card / tabella secondo responsivness
-- Componente daily per fare vedere la previsione della giornata e creare test
-- Componente weekly per fare veder la previsione della settimana e creare test
+- navbar visibile solo su non mobile con titolo e bottone per mostrare/nascondere posizione
+    - posizione visibile come modal
+    - aggiungere modal a MusaComponents
+- navbar visibile selezione fra previsione oraria e giornaliera
+- Componente hourly per fare vedere la previsione della giornata ora per ora e creare test relativi
+    - mostrare ora, previsione (weather code), precipitazione (mm), temperatura (°C)
+    - per la previsione mostrare anche una emoji equivalente
+    - mostrare media precipitazione e temperatura
+- Componente daily per fare veder la previsione della settimana giorno per giorno e creare test relativi
+    - mostrare giorno, previsione (weather code), precipitazione (mm), temperatura min (°C), temperatura max (°C)
+    - per la previsione mostrare anche la immagine equivalente generata con AI
+    - mostrare media precipitazione, temperatura min e temperatura max
+ 

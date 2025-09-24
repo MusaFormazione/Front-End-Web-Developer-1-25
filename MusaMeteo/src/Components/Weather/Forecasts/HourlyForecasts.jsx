@@ -1,5 +1,20 @@
 import { useState, useEffect } from 'react';
-import { WeatherCode } from './WeatherCodeEmojii';
+import styled from '@emotion/styled'
+
+import { WeatherCode } from './WeatherCode';
+
+const WeatherEmoji = styled.span`
+  padding: 4px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  font-size: 1.4em;
+  margin-left: 8px;
+`;
+
+const Weather = ({code}) => {
+  const weather = WeatherCode({ code: code });
+  return <span>{weather.description}<WeatherEmoji> {weather.emoji}</WeatherEmoji></span>
+}
 
 function HourlyForecasts({ weather }) {
   const [averageTemperature, setAverageTemperature] = useState(0);
@@ -12,30 +27,29 @@ function HourlyForecasts({ weather }) {
       setAverageTemperature(totalTemperature / weather.hourly.length);
       setAveragePrecipitation(totalPrecipitation / weather.hourly.length);
     }
-    console.dir(weather.hourly);
-    console.dir(weather.daily);
   }, [weather]);
 
-  return <table className='table table-bordered table-striped table-hover'>
+  return <table className='table table-bordered table-hover'>
     <thead>
       <tr className='table-primary'>
-        <th>Ora</th>
-        <th>Previsione</th>
-        <th>Precipitazioni (mm)</th>
-        <th>Temperatura (C)</th>
+        <th className='user-select-none'>Ora</th>
+        <th className='user-select-none'>Previsione</th>
+        <th className='user-select-none'>Precipitazioni (mm)</th>
+        <th className='user-select-none'>Temperatura (C)</th>
       </tr>
     </thead>
     <tbody>
       {weather.hourly?.map((data, index) => <tr key={index}>
-        <td>{data.hour}</td>
-        <td>{WeatherCode({ code: data.weather_code }).description} {WeatherCode({ code: data.weather_code }).emoji}</td>
-        <td>{data.precipitation.toFixed(2)}</td>
-        <td>{data.temperature.toFixed(2)}</td>
+        <td className='user-select-none'>{data.hour}</td>
+        <td className='user-select-none'><Weather code={data.weather_code} /></td>
+        <td className='user-select-none'>{data.precipitation.toFixed(2)} mm</td>
+        <td className='user-select-none'>{data.temperature.toFixed(2)} °C</td>
       </tr>)}
       <tr>
         <td><b>Media</b></td>
-        <td><b>{averagePrecipitation.toFixed(2)}</b></td>
-        <td><b>{averageTemperature.toFixed(2)}</b></td>
+        <td></td>
+        <td><b>{averagePrecipitation.toFixed(2)} mm</b></td>
+        <td><b>{averageTemperature.toFixed(2)} °C</b></td>
       </tr>
     </tbody>
   </table>

@@ -4,9 +4,7 @@ import RainImg from './assets/rain.png'
 import SunImg from './assets/sun.png'
 
 function WeatherCard({ daily, setDebug }) {
-  setDebug(`weather
-    ${JSON.stringify(daily, null, 2)}
-  `)
+  setDebug(`weather ${JSON.stringify(daily, null, 2)} `)
   if (!daily) return <></>
   const image = daily.rainSum > 0 ?
     { src: RainImg, portrait: false} : { src: SunImg, portrait: false }

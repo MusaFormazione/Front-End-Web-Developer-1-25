@@ -7,7 +7,7 @@ import WeatherCard from '../../../../src/Components/Weather/Forecasts/WeatherCar
 describe('WeatherCard Component', () => {
 
   it("it renders with correct css class", () => {
-    const { container } = render(<WeatherCard daily={{ maxTemperature: 20, minTemperature: 10, rainSum: 5 }} setDebug={() => {}} />);
+    const { container } = render(<WeatherCard daily={{ maxTemperature: 20, minTemperature: 10, rainSum: 5 }} />);
     expect(container.firstChild).toHaveClass('card shadow m-1');
   })
 });

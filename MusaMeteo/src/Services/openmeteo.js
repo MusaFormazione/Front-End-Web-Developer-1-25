@@ -43,13 +43,7 @@ async function updateWeatherData({ latitude, longitude }, setWeather) {
   const dailyTemperaturesMax = daily.variables(0).valuesArray();
   const dailyTemperaturesMin = daily.variables(1).valuesArray();
   const dailyWeatherCodes = daily.variables(2).valuesArray();
-console.dir(
-  {
-    dailyTemperaturesMax: dailyTemperaturesMax,
-    dailyTemperaturesMin: dailyTemperaturesMin,
-    dailyWeatherCodes: dailyWeatherCodes
-  }
-)
+
   const weatherData = {
     hourly: [],
     daily: []
