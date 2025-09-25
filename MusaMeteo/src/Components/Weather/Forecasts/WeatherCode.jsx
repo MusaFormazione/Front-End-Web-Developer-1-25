@@ -45,8 +45,7 @@ import ImgTemporaleGrandine from "./assets/temporale_grandine.png";
  * 95 *	Thunderstorm: Slight or moderate
  * 96, 99 *	Thunderstorm with slight and heavy hail
  */
-export function WeatherCode({ code }) {
-  console.log('code:',  code)
+export function WeatherCode(code) {
   const codeMap = {
     0: { emoji: "☀️", description: "Cielo sereno", image: ImgCieloSereno },
     1: { emoji: "🌤️", description: "Principalmente sereno", image: ImgPrincipalmenteSereno },

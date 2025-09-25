@@ -12,7 +12,7 @@ async function updateWeatherData({ latitude, longitude }, setWeather) {
   const paramsHourly = {
     "latitude": latitude,
     "longitude": longitude,
-    "hourly": ["rain", "temperature_2m", "snowfall","cloud_cover", "weather_code"],
+    "hourly": [ "temperature_2m", "weather_code"],
     "timezone": "Europe/Berlin",
     "forecast_days": 1
   };
@@ -34,10 +34,8 @@ async function updateWeatherData({ latitude, longitude }, setWeather) {
   const hourly = hourlyData.hourly();
   const daily = dailyData.daily();
 
-  const hourlyPrecipitations = hourly.variables(0).valuesArray()
-  const hourlyApparentTemperatures = hourly.variables(1).valuesArray()
-  const hourlyCloudCoverValues = hourly.variables(3).valuesArray()
-  const hourlyWeatherCodes = hourly.variables(4).valuesArray()
+  const hourlyApparentTemperatures = hourly.variables(0).valuesArray()
+  const hourlyWeatherCodes = hourly.variables(1).valuesArray()
 
 
   const dailyTemperaturesMax = daily.variables(0).valuesArray();
@@ -49,14 +47,10 @@ async function updateWeatherData({ latitude, longitude }, setWeather) {
     daily: []
   }
 
-  for (let i = 0; i < hourlyPrecipitations.length; i++) {
+  for (let i = 0; i < hourlyApparentTemperatures.length; i++) {
     weatherData.hourly.push({
-      hour: i + 1 > 12 ? `${i - 12} PM` : `${i} AM`, // Conversione in formato 12 ore
-      precipitation: hourlyPrecipitations[i],
       temperature: hourlyApparentTemperatures[i],
-      cloudCover: hourlyCloudCoverValues[i],
       weather_code: hourlyWeatherCodes[i]
-
     });
   }
 

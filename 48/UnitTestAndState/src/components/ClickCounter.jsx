@@ -1,5 +1,11 @@
 import { useState } from 'react'
 
+function MessaggioLimite({count, limite, children}) {
+  return count === limite && <div className="text-danger mt-2 p-2">
+    {children}
+  </div>
+}
+
 /**
  * Componente ClickCounter - Un semplice contatore con funzionalità di incremento, decremento e reset
  *
@@ -76,17 +82,12 @@ function ClickCounter() {
       </div>
 
       {/* Messaggi limite (opzionali) */}
-      {count === MIN_VALUE &&
-        <div className="text-danger mt-2">
-          Hai raggiunto il valore minimo!
-        </div>
-      }
-
-      {count === MAX_VALUE &&
-        <div className="text-danger mt-2">
-          Hai raggiunto il valore massimo!
-        </div>
-      }
+      <MessaggioLimite count={count} limite={MIN_VALUE}>
+        min value
+      </MessaggioLimite>
+      <MessaggioLimite count={count} limite={MAX_VALUE}>
+        Hai raggiunto il valore massimo!
+      </MessaggioLimite>
     </div>
   )
 }

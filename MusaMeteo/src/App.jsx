@@ -27,23 +27,17 @@ const ShowPosition = () => {
   return <i className="ms-3 bi bi-geo-alt-fill" data-bs-toggle="modal" data-bs-target="#positionModal"></i>
 }
 
-const HidePosition = () => {
-  return <i className="ms-3 bi bi-geo-alt" data-bs-toggle="modal" data-bs-target="#positionModal"></i>
+const ShowDaily = ({ active }) => {
+  return <span className={`w-25 ${active && 'fw-bold'}`}> Giornaliere <i className="bi bi-calendar-event ms-2"></i></span>
 }
 
-
-const ShowDaily = () => {
-  return <span className='w-25'> Giornaliere <i className="bi bi-calendar-event ms-2"></i></span>
-}
-
-const ShowHourly = () => {
-  return <span className='w-25'> Orarie <i className="bi bi-hourglass-split ms-2"></i></span>
+const ShowHourly = ({ active }) => {
+  return <span className={`w-25 ${active && 'fw-bold'}`}> Orarie <i className="bi bi-hourglass-split ms-2"></i></span>
 }
 
 function App () {
   const [geolocation, setGeolocation] = useState(initalGeolocation);
   const [weather, setWeather] = useState([]);
-  const [positionVisible, setPositionVisible] = useState(false);
   const [showDaily, setShowDaily] = useState(true);
   const [debug, setDebug] = useState(false)
 
@@ -62,18 +56,21 @@ function App () {
   }, [weather]);
 
   return <MusaContainer>
-      <MusaTitle>Musa Meteo</MusaTitle>
       <MusaRow className="mb-3 d-none d-sm-none d-md-none d-lg-block d-xl-block d-xxl-block">
-          <MusaNavbar title="Previsioni" items={[
-            {
-              label: showDaily? <ShowDaily /> : <ShowHourly />,
-              action: () => { setShowDaily(d => !d) }
-            },
-            {
-              label: positionVisible? <HidePosition /> : <ShowPosition />,
-              action: () => { setPositionVisible(p => !p) }
-            }]}
-          />
+        <MusaTitle>Musa Meteo</MusaTitle>
+        <MusaNavbar title="Previsioni" items={[
+          {
+            label: <ShowDaily active={showDaily} />,
+            action: () => { setShowDaily(true) }
+          },
+          {
+            label: <ShowHourly active={!showDaily} />,
+            action: () => { setShowDaily(false) }
+          },
+          {
+            label:  <ShowPosition />
+          }]}
+        />
       </MusaRow>
       <MusaRow>
           { weather && weather.hourly ?

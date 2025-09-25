@@ -8,11 +8,8 @@ const Image = styled.img`
 `;
 
 function WeatherImage({ weather_code }) {
-  const weather = WeatherCode({ code: weather_code });
-  return <div>
-    <Image className="justify-content-center" alt={weather.description} title={weather.description} src={weather.image} />
-    <div>{weather.description}</div>
-  </div>
+  const weather = WeatherCode(weather_code);
+  return <Image className="justify-content-center rounded-5 shadow" alt={weather.description} title={weather.description} src={weather.image} />
 }
 
 export default WeatherImage

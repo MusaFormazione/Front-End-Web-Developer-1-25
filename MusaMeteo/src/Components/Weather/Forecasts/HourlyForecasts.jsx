@@ -11,44 +11,48 @@ const WeatherEmoji = styled.span`
   margin-left: 8px;
 `;
 
-const Weather = ({code}) => {
-  const weather = WeatherCode({ code: code });
+function getHourOffsetFromNow(hourOffset) {
+  const date = new Date();
+  date.setHours(date.getHours() + hourOffset);
+  const options = { hour: 'numeric', hour12: true };
+  return date.toLocaleTimeString('it-IT', options);
+}
+
+function Weather({ code }) {
+  const weather = WeatherCode(code);
+
   return <span>{weather.description}<WeatherEmoji> {weather.emoji}</WeatherEmoji></span>
 }
 
 function HourlyForecasts({ weather }) {
   const [averageTemperature, setAverageTemperature] = useState(0);
-  const [averagePrecipitation, setAveragePrecipitation] = useState(0);
 
   useEffect(() => {
     if (weather && weather.hourly) {
       const totalTemperature = weather.hourly.reduce((acc, h) => acc + h.temperature, 0);
-      const totalPrecipitation = weather.hourly.reduce((acc, h) => acc + h.precipitation, 0);
       setAverageTemperature(totalTemperature / weather.hourly.length);
-      setAveragePrecipitation(totalPrecipitation / weather.hourly.length);
     }
   }, [weather]);
 
-  return <table className='table table-bordered table-hover'>
+  return <table className='table table-bordered table-hover bg-secondary-subtle w-75'>
     <thead>
-      <tr className='table-primary'>
-        <th className='user-select-none'>Ora</th>
-        <th className='user-select-none'>Previsione</th>
-        <th className='user-select-none'>Precipitazioni (mm)</th>
-        <th className='user-select-none'>Temperatura (C)</th>
+      <tr className='table-secondary'>
+        <th className='user-select-none p-2'>Ora</th>
+        <th className='user-select-none p-2'>Previsione</th>
+        <th className='user-select-none p-2'>Temperatura (C)</th>
       </tr>
     </thead>
     <tbody>
-      {weather.hourly?.map((data, index) => <tr key={index}>
-        <td className='user-select-none'>{data.hour}</td>
-        <td className='user-select-none'><Weather code={data.weather_code} /></td>
-        <td className='user-select-none'>{data.precipitation.toFixed(2)} mm</td>
-        <td className='user-select-none'>{data.temperature.toFixed(2)} °C</td>
-      </tr>)}
+      {weather.hourly?.filter((_,i) => i < 10).map((data, index) => {
+        return <tr key={index}>
+          <td className='user-select-none'>{getHourOffsetFromNow(index)}</td>
+          <td className='user-select-none'><Weather code={data.weather_code} /></td>
+          <td className='user-select-none'>{parseFloat(data.temperature).toFixed(2)} °C</td>
+        </tr>}
+      )}
       <tr>
         <td><b>Media</b></td>
         <td></td>
-        <td><b>{averagePrecipitation.toFixed(2)} mm</b></td>
         <td><b>{averageTemperature.toFixed(2)} °C</b></td>
       </tr>
     </tbody>

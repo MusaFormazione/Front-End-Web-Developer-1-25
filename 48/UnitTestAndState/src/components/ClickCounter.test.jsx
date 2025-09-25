@@ -81,6 +81,7 @@ describe('ClickCounter Component', () => {
     // Clicca il pulsante 11 volte (dovrebbe fermarsi a 10)
     for (let i = 0; i < 11; i++) {
       fireEvent.click(incrementButton)
+      expect(counterValue).toHaveTextContent(i+1 > 10 ? '10' : i+1 )
     }
 
     // Verifica che il valore sia stato limitato a 10
@@ -108,7 +109,10 @@ describe('ClickCounter Component', () => {
     expect(counterValue).toHaveTextContent('-10')
 
     // Verifica che ci sia un messaggio di avviso
-    const minMessage = screen.getByText('Hai raggiunto il valore minimo!')
+    const WRONGminMessage = screen.queryByText('Hai raggiunto il valore minimo!')
+    expect(WRONGminMessage).not.toBeInTheDocument()
+    const minMessage = screen.getByText('min value')
     expect(minMessage).toBeInTheDocument()
+    
   })
 })

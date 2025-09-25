@@ -13,6 +13,7 @@ function updateGeolocation(setGeolocation) {
     },
     (error) => {
       console.error('Errore nel recupero della posizione:', error);
+      alert('Errore nel recupero della posizione. Assicurati di aver abilitato la condivisione della posizione.');
     }
   );
 }
