@@ -1,0 +1,58 @@
+<h2>Obiettivo</h2>
+<p>Creare un'applicazione React che mostri le condizioni meteo e indichi se sono favorevoli per praticare windsurf in base alla velocità del vento.</p>
+<h2>Requisiti</h2>
+<h3>1. Componenti React</h3>
+<ul>
+<li>Implementare un componente principale <code>App</code> che gestisce lo stato dell'applicazione</li>
+<li>Creare un componente <code>MeteoSelector</code> per selezionare le condizioni meteo</li>
+<li>Implementare un componente <code>WindInput</code> per inserire la velocità del vento</li>
+<li>Creare un componente <code>WindsurfStatus</code> per mostrare se si può praticare windsurf</li>
+</ul>
+<h3>2. Funzionalità</h3>
+<ul>
+<li>Mostrare 3 bottoni mutuamente esclusivi per selezionare il meteo (sole, pioggia, nuvoloso)</li>
+<li>Solo un bottone può essere attivo alla volta</li>
+<li>Fornire un campo di input per inserire la velocità del vento in nodi</li>
+<li>Mostrare se si può praticare windsurf in base alla velocità del vento:
+<ul>
+<li>Più di 12 nodi: condizioni favorevoli per windsurf</li>
+<li>Più di 24 nodi: condizioni favorevoli ma per surfisti esperti</li>
+<li>Meno di 12 nodi: condizioni non favorevoli</li>
+</ul>
+</li>
+</ul>
+<h3>3. Styled Components con Emotion</h3>
+<ul>
+<li>Utilizzare Emotion per lo styling dei componenti</li>
+<li>Stilizzare i bottoni del meteo in modo diverso in base allo stato (attivo/inattivo)</li>
+<li>Applicare stili condizionali al componente WindsurfStatus in base alle condizioni</li>
+<li>Implementare una transizione fluida quando cambia lo stato del meteo</li>
+</ul>
+<h3>4. Visualizzazione</h3>
+<ul>
+<li>Mostrare un'immagine di sfondo che cambia in base al meteo selezionato</li>
+<li>Se le condizioni sono favorevoli per windsurf (&gt;12 nodi), mostrare un'immagine di una persona che pratica windsurf</li>
+</ul>
+<h3>5. Testing</h3>
+<ul>
+<li>Scrivere test per verificare che:
+<ul>
+<li>I bottoni del meteo funzionino correttamente</li>
+<li>L'input della velocità del vento aggiorni lo stato correttamente</li>
+<li>Il componente WindsurfStatus mostri il messaggio appropriato in base alla velocità del vento</li>
+<li>L'immagine corretta venga visualizzata in base alle condizioni</li>
+</ul>
+</li>
+</ul>
+<h2>Suggerimenti</h2>
+<ul>
+<li>Utilizzare lo stato di React (<code>useState</code>) per gestire:
+<ul>
+<li>La condizione meteo selezionata</li>
+<li>La velocità del vento inserita</li>
+</ul>
+</li>
+<li>Utilizzare componenti styled di Emotion per applicare stili condizionali</li>
+<li>Utilizzare props per passare i dati tra componenti</li>
+<li>Organizzare il progetto in modo modulare con componenti separati</li>
+</ul>
