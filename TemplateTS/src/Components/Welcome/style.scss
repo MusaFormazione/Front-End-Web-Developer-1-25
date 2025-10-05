@@ -1,0 +1,9 @@
+.welcome {
+    /* every letter different color as a rainbow */
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    text-align: center;
+    margin: 2rem 0;
+}
