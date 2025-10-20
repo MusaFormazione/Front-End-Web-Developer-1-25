@@ -1,31 +1,17 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import type { Recipe } from '../domain/recipe.type'
 
-export interface Recipe {
-  id: string,
-  name: string,
-  ingredients: string[],
-  instructions: string[],
-  prepTimeMinutes: number,
-  cookTimeMinutes: number,
-  servings: number,
-  difficulty: string,
-  cuisine: string,
-  caloriesPerServing: number,
-  tags: string[],
-  userId: number,
-  image: string,
-  rating: number,
-  reviewCount: number,
-  mealType: string[]
+interface RecipeList {
+  recipes: Recipe[],
+  total: number,
+  skip: number,
+  limit: number
 }
 
 export const fetchRecipe = createAsyncThunk(
   'recipe/retrive', // azione base
   async () => {
-    const response = await fetch('https://dummyjson.com/recipe')
-    if (!response.ok) {
-      return "Errore"
-    }
+    const response = await fetch('https://dummyjson.com/recipe?limit=8&skip=0')
     const data = await response.json()
     return data
   }
@@ -34,8 +20,9 @@ export const fetchRecipe = createAsyncThunk(
 const slice = createSlice({
   name: 'recipe',
   initialState: {
-    recipe: [] as Recipe[],
+    recipe: {} as RecipeList,
     loading: false,
+    done: false,
     error: null as string | null
   },
   reducers: {},
@@ -44,14 +31,19 @@ const slice = createSlice({
       .addCase(fetchRecipe.pending, (state) => {
         state.loading = true
         state.error = null
+        state.done = false
       })
       .addCase(fetchRecipe.fulfilled, (state, action) => {
         state.loading = false
-        state.quote = action.payload
+        state.recipe = action.payload
+        state.done = true
       })
       .addCase(fetchRecipe.rejected, (state, action) => {
         state.loading = false
+        state.done = false
         state.error = action.error.message || 'Errore sconosciuto'
       })
   }
 })
+
+export default slice.reducer

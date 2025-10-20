@@ -11,7 +11,7 @@ export const fetchQuotes = createAsyncThunk(
   async () => {
     const response = await fetch('https://dummyjson.com/quotes/random')
     if (!response.ok) {
-      return "Errore"
+      throw new Error("Errore nel recupero delle citazioni")
     }
     const data = await response.json()
     return data
@@ -34,12 +34,14 @@ const slice = createSlice({
       })
       .addCase(fetchQuotes.fulfilled, (state, action) => {
         state.loading = false
+        state.error = null
         if (action.payload) {
           state.quote = action.payload
         }
       })
       .addCase(fetchQuotes.rejected, (state, action) => {
         state.loading = false
+        state.quote = {} as Quote
         state.error = action.error.message || 'Errore sconosciuto'
       })
   }
