@@ -1,0 +1,11 @@
+.recipe-list {
+    display: flex;
+    flex-direction: row;
+    width: 992px;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 auto;
+    gap: 8px;
+}
