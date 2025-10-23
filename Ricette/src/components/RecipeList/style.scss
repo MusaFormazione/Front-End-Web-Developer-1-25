@@ -1,11 +1,13 @@
+@use '../../styles/variables';
+
 .recipe-list {
     display: flex;
     flex-direction: row;
-    width: 992px;
+    width: variables.$page-width;
     flex-wrap: wrap;
-    align-content: center;
-    justify-content: flex-start;
-    align-items: center;
+    align-content: flex-start;
+    justify-content: space-between;
+    align-items: flex-start;
     margin: 0 auto;
-    gap: 8px;
+    gap: 24px;
 }

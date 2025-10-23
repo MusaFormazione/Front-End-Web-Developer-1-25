@@ -1,8 +1,13 @@
 import { useDispatch, useSelector } from "react-redux"
-import type { AppDispatch, RootState } from "./store/storeRicette"
+import { BrowserRouter as Router,Routes, Route } from "react-router-dom"
 import { useEffect } from "react"
+import type { AppDispatch, RootState } from "./store/storeRicette"
+
 import { fetchRecipe } from "./store/sliceRicette"
-import RecipeList from "./components/RecipeList"
+
+import Home from "./pages/home"
+
+import "./App.scss"
 
 function App() {
   const ricette = useSelector((state: RootState) => state.ricette)
@@ -13,12 +18,11 @@ function App() {
     dispatch(fetchRecipe())
   }, [dispatch])
 
-  return <>
-    <h1>ricette</h1>
-    { ricette.loading && <p>Loading...</p> }
-    { ricette.error && <p>Error: {ricette.error}</p> }
-    { ricette.done && <RecipeList recipes={ricette.recipe.recipes} /> }
-  </>
+  return <Router>
+    <Routes>
+      <Route path="/" element={<Home state={{ ricette }} />} />
+    </Routes>
+  </Router>
 }
 
 export default App

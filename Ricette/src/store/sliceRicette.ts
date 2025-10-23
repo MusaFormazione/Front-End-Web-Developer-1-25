@@ -1,12 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import type { Recipe } from '../domain/recipe.type'
-
-interface RecipeList {
-  recipes: Recipe[],
-  total: number,
-  skip: number,
-  limit: number
-}
+import type { RecipeList } from '../domain/recipe.type'
 
 export const fetchRecipe = createAsyncThunk(
   'recipe/retrive', // azione base

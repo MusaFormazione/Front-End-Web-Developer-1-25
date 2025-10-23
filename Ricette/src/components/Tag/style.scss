@@ -1,0 +1,19 @@
+@use '../../styles/variables';
+
+span {
+    background-color: variables.$secondary-color;
+    padding: 2px 4px;
+    border-radius: 8px;
+    margin-right: 8px;
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-bottom: 8px;
+}

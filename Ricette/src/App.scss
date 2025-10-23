@@ -1,0 +1,23 @@
+@use './styles/variables';
+
+body {
+    font-family: variables.$font-family;
+    color: variables.$text-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: variables.$font-family;
+}
+
+p {
+    color: variables.$text-color;
+    font-family: variables.$font-family;
+}
+
+.secondary-text {
+    color: variables.$secondary-text-color;
+}
+
+.accent-text {
+    color: variables.$accent-color;
+}

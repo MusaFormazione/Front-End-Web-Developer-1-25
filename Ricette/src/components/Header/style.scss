@@ -1,0 +1,9 @@
+@use '../../styles/variables';
+.header {
+    width: variables.$page-width;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: variables.$accent-color;
+}
