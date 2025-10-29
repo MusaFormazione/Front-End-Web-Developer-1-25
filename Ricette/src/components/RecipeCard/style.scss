@@ -1,11 +1,13 @@
+@use '../../styles/variables';
+
 .recipe {
     padding: 0;
-    max-width: 224px;
+    max-width: 304px;
     border: 1px solid gray;
-    border-radius: 8px;
+    border-radius: variables.$base-unit;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    max-height: 360px;
-    min-height: 360px;
+    max-height: 432px;
+    min-height: 432px;
     margin-bottom: 24px;
     overflow: hidden;
 
@@ -18,5 +20,15 @@
     h2, h3, h4, h5, h6, p, div {
         margin-left: 16px;
         margin-right: 16px;
+
     }
+    h4 {
+        margin: 8px 16px;
+        font-size:calc(variables.$font-size-base * 1.5);
+    }
+}
+
+.recipe-link {
+    text-decoration: none;
+    color: inherit;
 }

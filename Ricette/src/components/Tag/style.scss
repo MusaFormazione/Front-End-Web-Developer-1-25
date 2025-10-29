@@ -1,15 +1,15 @@
 @use '../../styles/variables';
 
-span {
+span.tag {
     background-color: variables.$secondary-color;
-    padding: 2px 4px;
+    padding: calc(variables.$font-size-base / 4) calc(variables.$font-size-base / 2);
     border-radius: 8px;
     margin-right: 8px;
     margin-top: 8px;
-    font-size: 12px;
+    font-size: calc(variables.$font-size-base * 1.2);
 }
 
-div {
+div.tag-list {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;

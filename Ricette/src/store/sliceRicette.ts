@@ -4,7 +4,7 @@ import type { RecipeList } from '../domain/recipe.type'
 export const fetchRecipe = createAsyncThunk(
   'recipe/retrive', // azione base
   async () => {
-    const response = await fetch('https://dummyjson.com/recipe?limit=8&skip=0')
+    const response = await fetch('https://dummyjson.com/recipe?limit=9&skip=0')
     const data = await response.json()
     return data
   }

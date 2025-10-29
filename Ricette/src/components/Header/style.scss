@@ -7,3 +7,21 @@
     align-items: center;
     color: variables.$accent-color;
 }
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: variables.$base-unit * 2;
+    width: variables.$page-width * 0.64;
+    margin: 0 auto;
+    a {
+        text-decoration: none;
+        color: variables.$secondary-color;
+        &.menu-active {
+            color: variables.$text-color;
+            font-weight: bold;
+            border-bottom: 2px solid variables.$accent-color;
+        }
+    }
+}

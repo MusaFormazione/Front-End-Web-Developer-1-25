@@ -1,13 +1,15 @@
 import { useDispatch, useSelector } from "react-redux"
 import { BrowserRouter as Router,Routes, Route } from "react-router-dom"
 import { useEffect } from "react"
-import type { AppDispatch, RootState } from "./store/storeRicette"
 
+import type { AppDispatch, RootState } from "./store/storeRicette"
 import { fetchRecipe } from "./store/sliceRicette"
 
-import Home from "./pages/home"
+import Home from "./pages/Home"
+import RecipePage from "./pages/Recipe"
 
 import "./App.scss"
+import NotFound from "./pages/NotFound"
 
 function App() {
   const ricette = useSelector((state: RootState) => state.ricette)
@@ -21,6 +23,8 @@ function App() {
   return <Router>
     <Routes>
       <Route path="/" element={<Home state={{ ricette }} />} />
+      <Route path="/recipe/:id" element={<RecipePage />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   </Router>
 }
