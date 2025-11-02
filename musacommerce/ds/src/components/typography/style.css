@@ -1,0 +1,20 @@
+.mds-heading-1 {
+    font-size: 36px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+.mds-heading-2 {
+    font-size: 24px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.mds-heading-3 {
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    line-height: 1.4;
+}
