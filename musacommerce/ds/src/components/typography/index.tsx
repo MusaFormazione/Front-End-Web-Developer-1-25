@@ -1,51 +1,73 @@
 import "./style.css"
 
-type PrimaryColor = "#0A2540"
-type NeutralColor = "#212529"
-type AccentColor = "#007BFF"
+export type Color =  "#0A2540" | "#212529" | "#007BFF"
 
-type Color =  PrimaryColor | NeutralColor | AccentColor
+export type Decoration = "none" | "underline" | "line-through"
 
-interface PropsHeading {
-  level?: 1 | 2 | 3;
-  text: string;
+interface PropsBaseTypography {
   color: Color;
+  text: string;
+  decoration: Decoration;
 }
 
-function Heading({ level, text, color }: PropsHeading) {
-  switch (level) {
-    case 1:
-      return <h1 className="mds-heading-1" style={{ color }}>{text}</h1>;
-    case 2:
-      return <h2 className="mds-heading-2" style={{ color }}>{text}</h2>;
-    case 3:
-      return <h3 className="mds-heading-3" style={{ color }}>{text}</h3>;
+export type TypographyElement = "heading" | "body" | "subtitle" | "helper";
+export type HeaderLevel = 1 | 2 | 3;
+
+
+export interface PropsTypography extends PropsBaseTypography {
+  level?: HeaderLevel;
+  type: TypographyElement;
+}
+function Typography(props: PropsTypography) {
+  const { type } = props;
+  switch (type) {
+    case "heading":
+      return <Heading {...props} />;
+    case "body":
+      return <BodyText {...props} />;
+    case "subtitle":
+      return <Subtitle {...props} />;
+    case "helper":
+      return <HelperText {...props} />;
     default:
-      return <h1 className="mds-heading-1" style={{ color }}>{text}</h1>;
+      return null;
   }
 }
 
-interface PropsBodyText {
-  text: string;
-  color: Color;
-}
-function BodyText({ text, color }: PropsBodyText) {
-  return <p className="mds-body-text" style={{ color }}>{text}</p>;
-}
-
-interface PropsSubtitle {
-  text: string;
-}
-
-function Subtitle({ text }: PropsSubtitle) {
-  return <span className="mds-subtitle">{text}</span>;
+function Heading({ level, text, color, decoration }: PropsTypography) {
+  switch (level) {
+    case 1:
+      return <h1 className="mds-heading-1" style={{ color, textDecoration: decoration }}>{text}</h1>;
+    case 2:
+      return <h2 className="mds-heading-2" style={{ color, textDecoration: decoration }}>{text}</h2>;
+    case 3:
+      return <h3 className="mds-heading-3" style={{ color, textDecoration: decoration }}>{text}</h3>;
+    default:
+      return <h1 className="mds-heading-1" style={{ color, textDecoration: decoration }}>{text}</h1>;
+  }
 }
 
-interface PropsHelperText {
-  text: string;
-}
-function HelperText({ text }: PropsHelperText) {
-  return <span className="mds-helper-text">{text}</span>;
+function BodyText({ text, color, decoration }: PropsBaseTypography) {
+  return <p className="mds-body-text" style={{ color, textDecoration: decoration }}>{text}</p>;
 }
 
-export { Heading, BodyText, Subtitle, HelperText };
+function Subtitle({ text, color, decoration }: PropsBaseTypography) {
+  return <span className="mds-subtitle" style={{ color, textDecoration: decoration }}>{text}</span>;
+}
+
+function HelperText({ text, color, decoration }: PropsBaseTypography) {
+  return <span className="mds-helper-text" style={{ color, textDecoration: decoration }}>{text}</span>;
+}
+
+// Eventualmente si puo esportare ogni singolo componente per i test unitari
+// const UnitTests = {
+//   Typography,
+//   HelperText,
+//   Subtitle,
+//   BodyText,
+//   Heading
+// };
+
+// export { Typography, UnitTests };
+
+export { Typography };

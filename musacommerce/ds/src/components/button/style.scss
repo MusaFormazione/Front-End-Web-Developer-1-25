@@ -1,0 +1,62 @@
+$buttonBackgroundColor: #136dec;
+$buttonBackgroundColorHover: #1e40af;
+$buttonTextColor: #ffffff;
+$buttonBackgroundColorDisabled: #89b6f5;
+
+$secondaryButtonBackgroundColor: #e7f0fd;
+$secondaryButtonTextColor: #1e40af;
+$secondaryButtonBackgroundColorHover: #d0e2fb;
+$secondaryButtonTextColorDisabled: #d0e2fb;
+
+.mds-button-primary, .mds-button-secondary {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    min-width: 240px;
+    font-weight: 700;
+}
+
+.mds-button-primary {
+    background-color: $buttonBackgroundColor;
+    color: $buttonTextColor;
+    &:hover {
+        background-color: $buttonBackgroundColorHover;
+    }
+
+    &:disabled {
+        background-color: $buttonBackgroundColorDisabled;
+        cursor: not-allowed;
+    }
+
+    &:focus {
+        border-style: solid;
+        border-width: 2px;
+        border-color: $buttonBackgroundColor
+    }
+}
+
+.mds-button-secondary {
+    background-color: $secondaryButtonBackgroundColor;
+    color: $secondaryButtonTextColor;
+
+    &:hover {
+        color: $secondaryButtonBackgroundColorHover;
+    }
+
+    &:disabled{
+        color: $secondaryButtonTextColorDisabled;
+        cursor: not-allowed;
+    }
+
+    &:focus {
+        border-style: solid;
+        border-width: 2px;
+        border-color: $secondaryButtonTextColor;
+    }
+}
