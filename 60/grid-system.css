@@ -1,0 +1,99 @@
+ /* Base Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+
+.container {
+    max-width: 1200px; /* Larghezza massima del contenitore */
+    margin: 0 auto; /* Centra il contenitore */
+}
+
+h1 {
+    color: #333;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.row-title {
+    margin-top: 30px;
+    font-size: 1.25em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* ****************************************************
+ * CORE GRID SYSTEM
+ * ****************************************************/
+
+/* 1. Definizione della Griglia Contenitore (Row) */
+.row {
+    display: grid;
+    /* La chiave: definisce 12 colonne di frazione uguale (1fr) */
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px; /* Spazio (gutter) tra le colonne */
+    margin-bottom: 20px;
+}
+
+/* 2. Definizione delle Colonne (Grid Items) per Desktop (> 768px) */
+/* Ogni classe col-X definisce quante delle 12 colonne deve occupare. */
+.col-1 { grid-column: span 1; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-5 { grid-column: span 5; }
+.col-6 { grid-column: span 6; }
+.col-7 { grid-column: span 7; }
+.col-8 { grid-column: span 8; }
+.col-9 { grid-column: span 9; }
+.col-10 { grid-column: span 10; }
+.col-11 { grid-column: span 11; }
+.col-12 { grid-column: span 12; }
+
+/* Stili per l'aspetto visivo delle colonne */
+.col-box {
+    background-color: #e0f7fa; /* Azzurro chiaro */
+    border: 1px solid #00bcd4; /* Ciano */
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    color: #006064;
+    min-height: 80px; /* Altezza minima per visualizzazione */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+/* Offset (opzionale): Sposta la colonna a destra di N slot vuoti */
+.col-offset-1 { grid-column-start: 2; }
+.col-offset-2 { grid-column-start: 3; }
+.col-offset-3 { grid-column-start: 4; }
+.col-offset-4 { grid-column-start: 5; }
+.col-offset-5 { grid-column-start: 6; }
+.col-offset-6 { grid-column-start: 7; }
+
+/* * 3. Responsività: Mobile-First con Media Query */
+/* Su schermi piccoli (fino a 767px), tutte le colonne occupano 12/12. */
+@media (max-width: 767px) {
+    .row {
+        /* Su mobile, potresti volere che la griglia diventi a singola colonna */
+        display: block;
+        gap: 0;
+    }
+
+    /* Forziamo ogni colonna ad occupare il 100% della larghezza */
+    .col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
+    .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+        width: 100%;
+        margin-bottom: 15px; /* Spazio tra le colonne verticali in mobile */
+    }
+
+    .col-box {
+        min-height: 50px;
+    }
+}
