@@ -28,3 +28,6 @@ console.log(primoNumero)   // Output: 1
 console.log(primoAnimale)  // Output: { tipo: 'gatto', peso: 3 }
 
 
+
+
+

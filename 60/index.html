@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="grid-system.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+      }
+      .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+        min-height: 160px;
+        padding: 16px
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-4" style="background-color:lightblue;">
+        Colonna 1
+      </div>
+      <div class="col-4" style="background-color:lightgreen;">
+        Colonna 2
+      </div>
+      <div class="col-4" style="background-color:lightcoral;">
+        Colonna 3
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6" style="background-color:lightgray;">
+        Colonna 1
+      </div>
+      <div class="col-6" style="background-color:lightyellow;">
+        Colonna 2
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-offset-3 col-6" style="background-color:lightpink;">
+        Colonna centrata
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-7" style="background-color:lightseagreen;">
+        Colonna 1
+      </div>
+      <div class="col-5" style="background-color:lightsalmon;">
+        Colonna 2
+      </div>
+    </div>
+  </body>
+</html>

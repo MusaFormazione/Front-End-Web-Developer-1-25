@@ -1,0 +1,63 @@
+$success-color: #28a745;
+$error-color: #dc3545;
+$warning-color: #ffc107;
+$info-color: #17a2b8;
+
+
+
+.mds-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-family: Inter, Arial, sans-serif;
+  label {
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+
+  small {
+    margin-top: 8px;
+  }
+
+  input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &.small {
+    font-size: 12px;
+  }
+
+  &.large {
+    font-size: 24px;
+  }
+
+  &.success input, &.success label, &.success small {
+    border-color: $success-color;
+    color: $success-color;
+  }
+
+  &.error input, &.error label, &.error small {
+    border-color: $error-color;
+    color: $error-color;
+  }
+
+  &.warning input, &.warning label, &.warning small {
+    border-color: $warning-color;
+    color: $warning-color;
+  }
+
+  &.info input, &.info label, &.info small {
+    border-color: $info-color;
+    color: $info-color;
+  }
+
+
+}
+
