@@ -28,12 +28,13 @@
 
 
 /* Offset (opzionale): Sposta la colonna a destra di N slot vuoti */
-.col-offset-1 { grid-column-start: 2; }
-.col-offset-2 { grid-column-start: 3; }
-.col-offset-3 { grid-column-start: 4; }
-.col-offset-4 { grid-column-start: 5; }
-.col-offset-5 { grid-column-start: 6; }
-.col-offset-6 { grid-column-start: 7; }
+/* disablitiati perchè andiamo ad utilizzare direttamente delle col vuote  per semplificare */
+//.col-offset-1 { grid-column-start: 2; grid-column-end: auto; }
+//.col-offset-2 { grid-column-start: 3; grid-column-end: auto; }
+//.col-offset-3 { grid-column-start: 4; grid-column-end: auto; }
+//.col-offset-4 { grid-column-start: 5; grid-column-end: auto; }
+//.col-offset-5 { grid-column-start: 6; grid-column-end: auto; }
+//.col-offset-6 { grid-column-start: 7; grid-column-end: auto; }
 
 /* * 3. Responsività: Mobile-First con Media Query */
 /* Su schermi piccoli (fino a 767px), tutte le colonne occupano 12/12. */

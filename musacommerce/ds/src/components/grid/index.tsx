@@ -5,7 +5,7 @@ interface RowProps {
 }
 
 function Row({ children }: RowProps) {
-  return <div className="mds-row">{children}</div>;
+  return <div className="row">{children}</div>;
 }
 
 interface ColProps {
@@ -17,9 +17,17 @@ interface ColProps {
 
 function Col({ children, cols, offset, style }: ColProps) {
   const colClass = cols ? `col-${cols}` : '';
-  const offsetClass = offset ? `offset-${offset}` : '';
-  return <div className={`mds-col ${colClass} ${offsetClass}`} style={style}>
-    {children}
-  </div>;
+  const offsetClass = offset ? `col-${offset}` : '';
+
+  return <>
+    {offset > 0 && <div className={offsetClass}></div>}
+    <div className={`${offsetClass} ${colClass}`} style={style}>
+      {children}
+    </div>
+  </>;
+
 }
+
+
+
 export { Row, Col };

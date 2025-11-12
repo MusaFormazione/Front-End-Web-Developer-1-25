@@ -1,12 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import {
-  Col
-} from './../components/grid';
+import { ColWrapper } from './ColWrapper.tsx';
 
 const meta = {
-  component: Col,
-} satisfies Meta<typeof Col>;
+  component: ColWrapper,
+} satisfies Meta<typeof ColWrapper>;
 
 type Story = StoryObj<typeof meta>;
 
