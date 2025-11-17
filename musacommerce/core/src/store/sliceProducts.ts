@@ -4,16 +4,16 @@ import type { Products }  from '../domain/Product.type.ts'
 export const fetchProducts = createAsyncThunk(
   'products/retrive', // azione base
   async () => {
-    const response = await fetch('https://dummyjson.com/products?limit=9&skip=0')
+    const response = await fetch('https://dummyjson.com/products?limit=8&skip=0')
     const data = await response.json()
     return data
   }
 )
 
 const slice = createSlice({
-  name: 'products',
+  name: 'sliceProducts',
   initialState: {
-    products: {} as Products,
+    stateProducts: {} as Products,
     loading: false,
     done: false,
     error: null as string | null
@@ -28,7 +28,7 @@ const slice = createSlice({
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
         state.loading = false
-        state.products = action.payload
+        state.stateProducts = action.payload
         state.done = true
       })
       .addCase(fetchProducts.rejected, (state, action) => {

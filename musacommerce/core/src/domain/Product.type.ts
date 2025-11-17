@@ -44,11 +44,11 @@ type Product = {
   images: string[];
 }
 
-interface Products = {
+interface Products {
   products: Product[];
   total: number;
   skip: number;
   limit: number;
 }
 
-export { Product, Products }
+export type { Product, Products }

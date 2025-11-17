@@ -20,7 +20,7 @@ function Col({ children, cols, offset, style }: ColProps) {
   const offsetClass = offset ? `col-${offset}` : '';
 
   return <>
-    {offset > 0 && <div className={offsetClass}></div>}
+    {(offset && offset > 0) && <div className={offsetClass}></div>}
     <div className={`${offsetClass} ${colClass}`} style={style}>
       {children}
     </div>
@@ -28,6 +28,18 @@ function Col({ children, cols, offset, style }: ColProps) {
 
 }
 
+interface ContainerProps {
+  children: React.ReactNode;
+}
+
+function Container ({ children }: ContainerProps) {
+  // Errore fatto a lezione, la riga originale era
+  // <div className="mds-container">
+  // dove evdientemente mancava il return come in questa corretta
+  return <div className="mds-container">
+    {children}
+  </div>
+}
 
 
-export { Row, Col };
+export { Row, Col, Container };

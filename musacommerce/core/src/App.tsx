@@ -9,19 +9,19 @@ import Home from "./pages/Home"
 import NotFound from "./pages/NotFound"
 
 function App() {
-  const products = useSelector((state: RootState) => state.products)
+  const reducerProducts = useSelector((state: RootState) => state.reducerProducts)
   const dispatch = useDispatch<AppDispatch>()
 
   useEffect(() => {
     dispatch(fetchProducts())
   }, [dispatch])
 
- return <Router>
-    <Routes>
-      <Route path="/" element={<Home state={{ products}}/>} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
- </Router>
+  return <Router>
+      <Routes>
+        <Route path="/" element={<Home state={{ reducerProducts }}/>} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+  </Router>
 }
 
 export default App

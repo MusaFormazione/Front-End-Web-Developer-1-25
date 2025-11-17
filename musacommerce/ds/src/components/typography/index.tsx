@@ -1,13 +1,18 @@
 import "./style.css"
 
-export type Color =  "#0A2540" | "#212529" | "#007BFF"
+export const TEXT_COLOR = "#212529"
+export const ACCENT_COLOR = "#007BFF"
+export const PRIMARY_COLOR = "#0A2540"
+export const SECONDARY_TEXT_COLOR = "#63748b"
+
+export type Color =  "#0A2540" | "#212529" | "#007BFF" | "#63748b"
 
 export type Decoration = "none" | "underline" | "line-through"
 
 interface PropsBaseTypography {
-  color: Color;
+  color?: Color;
   text: string;
-  decoration: Decoration;
+  decoration?: Decoration;
 }
 
 export type TypographyElement = "heading" | "body" | "subtitle" | "helper";
@@ -34,7 +39,7 @@ function Typography(props: PropsTypography) {
   }
 }
 
-function Heading({ level, text, color, decoration }: PropsTypography) {
+function Heading({ level, text, color = TEXT_COLOR, decoration = "none" }: PropsTypography) {
   switch (level) {
     case 1:
       return <h1 className="mds-heading-1" style={{ color, textDecoration: decoration }}>{text}</h1>;
