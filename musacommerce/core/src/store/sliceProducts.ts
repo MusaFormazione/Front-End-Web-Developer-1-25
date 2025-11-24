@@ -4,7 +4,7 @@ import type { Products }  from '../domain/Product.type.ts'
 export const fetchProducts = createAsyncThunk(
   'products/retrive', // azione base
   async () => {
-    const response = await fetch('https://dummyjson.com/products?limit=8&skip=0')
+    const response = await fetch('https://dummyjson.com/products')
     const data = await response.json()
     return data
   }

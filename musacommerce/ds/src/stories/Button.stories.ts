@@ -27,3 +27,11 @@ export const ButtonSecondary: Story = {
     disabled: false
   },
 };
+
+export const ButtonLink: Story = {
+  args: {
+    label: 'Button Secondary',
+    variant: "secondary",
+    disabled: false
+  }
+}

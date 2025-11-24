@@ -8,7 +8,7 @@ $secondaryButtonTextColor: #1e40af;
 $secondaryButtonBackgroundColorHover: #d0e2fb;
 $secondaryButtonTextColorDisabled: #d0e2fb;
 
-.mds-button-primary, .mds-button-secondary {
+.mds-button-primary, .mds-button-secondary, .mds-button-link {
     cursor: pointer;
     transition: background-color 0.2s ease;
     text-decoration: none;
@@ -59,4 +59,10 @@ $secondaryButtonTextColorDisabled: #d0e2fb;
         border-width: 2px;
         border-color: $secondaryButtonTextColor;
     }
+}
+
+.mds-button-link {
+    background-color: $secondaryButtonBackgroundColor;
+    color: $secondaryButtonTextColor;
+    text-decoration: underline;
 }

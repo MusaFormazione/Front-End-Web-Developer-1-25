@@ -1,0 +1,33 @@
+$selectedColor: #136dec;
+
+.mds-pagination {
+    display: flex;
+    flex-direction: row;
+}
+
+.mds-page {
+    align-content: center;
+    border-radius: 50%;
+    display: flex;
+    height: 24px;
+    justify-content: center;
+    margin: 12px;
+    width: 24px;
+    padding: 8px;
+    text-decoration: none !important;
+    user-select: none;
+}
+
+.mds-page > * {
+    color: #212529;
+    text-decoration: none !important;
+}
+
+.mds-page-selected {
+    background-color: $selectedColor !important;
+}
+
+.mds-page-selected > * {
+    color: #fff !important;
+    text-decoration: none !important;
+}

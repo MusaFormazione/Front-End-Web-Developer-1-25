@@ -1,17 +1,19 @@
-import type { MouseEventHandler } from "react";
+import type { MouseEventHandler, ReactNode } from "react";
 import "./style.scss";
 
 interface Props {
-  label: string;
-  variant?: "primary" | "secondary";
+  children?: ReactNode;
+  className?: string;
   disabled?: boolean;
+  label: string;
+  variant?: "primary" | "secondary" | "link";
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined
 }
 
-function Button({ label, onClick, variant = "primary", disabled = false }: Props) {
-  const classNames = `mds-button-${variant}`;
+function Button({ children, label, onClick, className = "" , variant = "primary", disabled = false }: Props) {
+  const classNames = `${className} mds-button-${variant}`;
   return <button className={classNames} disabled={disabled} onClick={onClick}>
-    {label}
+    { children ?? label}
   </button>;
 }
 

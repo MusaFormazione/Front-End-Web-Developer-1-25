@@ -1,0 +1,47 @@
+$selectedColor: #136dec;
+$textColor: #212529;
+
+.mds-navbar-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.mds-navbar-items {
+    align-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.mds-navbar-item {
+    border-radius: 24px;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding: 16px;
+    user-select: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: $textColor;
+    &:hover {
+        border-bottom: 1px solid $selectedColor;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
+    }
+}
+
+
+.mds-navbar-item-selected {
+    background-color: $selectedColor !important;
+    color: white;
+}
+
+.mds-navbar-title {
+    min-width: max-content;
+    display:flex;
+    align-content: center;
+    align-items: center;
+}
+
+.mds-navbar-logo {
+    max-height: 32px;
+    max-width: 32px;
+    margin-right: 24px;
+}

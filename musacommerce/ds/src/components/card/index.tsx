@@ -18,8 +18,10 @@ interface Props {
 function Card({button, description, image, title}: Props) {
   return <div className="mds-card">
     {image && <img src={image} title={title} /> }
-    <Typography text={title} type="heading" level={2} color="#0A2540" />
-    <Typography text={description} type="body" color="#63748b" />
+    <div className="mds-card-body">
+      <Typography text={title} type="heading" level={2} color="#0A2540" />
+      <Typography text={description} type="body" color="#63748b" />
+    </div>
     <Button label={button.label} disabled={button.disabled} onClick={button.onClick} />
   </div>
 }

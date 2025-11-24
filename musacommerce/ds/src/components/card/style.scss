@@ -1,5 +1,6 @@
 .mds-card {
-  min-height: 260px;
+  min-height: 460px;
+  max-height: 460px;
   max-width: 260px;
   border-radius: 8px;
   border-style: solid;
@@ -8,8 +9,13 @@
   padding: 24px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   img {
     max-height: 240px;
     max-width: 240px;
+  }
+  .mds-card-body {
+    min-height: 180px;
+    max-width: 180px;
   }
 }
