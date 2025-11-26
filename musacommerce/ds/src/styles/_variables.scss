@@ -1,0 +1,27 @@
+// src/styles/_variables.scss
+
+// Colors
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$danger-color: #dc3545;
+$warning-color: #ffc107;
+$info-color: #17a2b8;
+$light-color: #f8f9fa;
+$dark-color: #343a40;
+
+// Text
+$text-color: $dark-color;
+$link-color: $primary-color;
+
+// Background
+$background-color: #ffffff;
+$secondary-background-color: $light-color;
+
+// Spacing
+$spacing-unit: 8px;
+$spacing-xs: $spacing-unit * 0.5;  // 4px
+$spacing-sm: $spacing-unit;        // 8px
+$spacing-md: $spacing-unit * 2;  // 16px
+$spacing-lg: $spacing-unit * 3;  // 24px
+$spacing-xl: $spacing-unit * 4;  // 32px

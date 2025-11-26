@@ -22,11 +22,11 @@ $textColor: #212529;
     text-decoration: none;
     color: $textColor;
     &:hover {
-        border-bottom: 1px solid $selectedColor;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
+      background-color: $selectedColor !important;
+      color: white;
+      opacity: 0.8;
     }
 }
-
 
 .mds-navbar-item-selected {
     background-color: $selectedColor !important;

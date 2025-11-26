@@ -22,15 +22,15 @@ function Navbar({ logo, title, items, selected }:Props ) {
     <div className="mds-navbar-items">
       {
         items && items.map((i,idx) => {
-          const selectedClass = selected && idx === selected ?' mds-navbar-item-selected':''
+          const selectedClass = idx === selected ?' mds-navbar-item-selected':''
+          const className = `mds-navbar-item${selectedClass}`
           if (i.link) {
-            return <a href={i.link}
-              className={`mds-navbar-item${selectedClass}`}>
+            return <a key={idx} href={i.link} className={className}>
               {i.text}
             </a>
           }
 
-          return <span className="mds-navbar-item">{i.text}</span>
+          return <span key={idx} className={className} onClick={() => i.onClick && i.onClick()}>{i.text}</span>
         })
       }
     </div>

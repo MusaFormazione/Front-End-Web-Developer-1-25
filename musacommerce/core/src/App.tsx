@@ -6,6 +6,7 @@ import type { AppDispatch, RootState } from "./store/storeProducts"
 import { fetchProducts } from "./store/sliceProducts"
 
 import Home from "./pages/home"
+import Cart from "./pages/cart"
 import NotFound from "./pages/NotFound"
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home state={{ reducerProducts }}/>} />
         <Route path="/:page" element={<Home state={{ reducerProducts }}/>} />
+        <Route path="/cart" element={<Cart state={{ reducerProducts }} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
   </Router>
